@@ -23,7 +23,7 @@ public class SatisfyallCommand implements CommandExecutor
         {
             player.setHealth(20.0);
             player.setFoodLevel(20);
-            player.sendMessage(ChatColor.AQUA + "Everyone on the server has been healed and fed fully. ");
+            player.sendMessage(ChatColor.AQUA + sender.getName() + " has fed and healed the entire server!");
         }
         return true;
     }
