@@ -1,0 +1,61 @@
+name: TF-SMP
+version: 1.0
+main: me.totalfreedom.smp.TFSMP
+author: Ivan
+description: Plugin for the TotalFreedom SMP server.
+commands:
+  chatall:
+    permission: IvanUtilities.OP
+    description: Chat as everyone.
+    usage: /chatall message
+  strikeall:
+    permission: IvanUtilities.OP
+    description: Strike all!
+    usage: /strikeall
+  importantmessage:
+    permission: IvanUtilities.OP
+    description: Important Message
+    usage: /importantmessage message
+  satisfyall:
+    permission: IvanUtilities.OP
+    description: Feed and Heal everyone
+    usage: /satisfyall
+  begin:
+    permission: smp.warp
+    description: Randomly Teleport
+    usage: /begin
+  clearweather:
+    permission: IvanUtilities.default
+    description: Clears weather in all worlds
+    usage: /weather
+  opchat:
+    aliases: [o, oc, adminchat, ac]
+    permission: IvanUtilities.OP
+    description: Speak with other OPs
+    usage: /opchat message
+  owo:
+    permission: IvanUtilities.OP
+    description: Owo!
+    usage: /owo
+  uhoh:
+    permission: IvanUtilities.OP
+    description: Uh oh! Stinky!
+    usage: /uhoh
+  powerboost:
+    permission: IvanUtilities.default
+    description: Powerboost faction
+    usage: /powerboost faction
+
+permissions:
+  IvanUtilities.OP:
+    description: Gives access to all commands
+    default: op
+  IvanUtilities.troll:
+    description: Gives access to some commands
+    default: op
+  IvanUtilities.default:
+    description: idiot
+    default: op
+  smp.warp:
+    description: bruh
+    default: op
