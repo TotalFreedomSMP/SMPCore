@@ -4,3 +4,6 @@
 
 # Maven
 /target
+
+# Mac shit
+.DS_Store

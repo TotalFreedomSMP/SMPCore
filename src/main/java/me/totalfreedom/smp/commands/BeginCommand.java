@@ -15,9 +15,11 @@ public class BeginCommand implements CommandExecutor
         {
             return false;
         }
-        final Player player = (Player)sender;
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "rtp " + sender.getName());
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + sender.getName() + " group set Player");
+        Bukkit.dispatchCommand(sender, "rtp");
+        if (!sender.hasPermission("smp.noadd"))
+        {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + sender.getName() + " group set Player");
+        }
         sender.sendMessage(ChatColor.RED + "You are now ready to play SMP! Good luck!");
         sender.sendMessage(ChatColor.GRAY + "If you are wanting to work with someone, send them a teleport request with '/tpa <user>'!");
         sender.sendMessage(ChatColor.GOLD + "To start a faction, type '/f create <name>'");
