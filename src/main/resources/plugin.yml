@@ -16,6 +16,15 @@ commands:
     permission: IvanUtilities.OP
     description: Important Message
     usage: /importantmessage message
+  shop:
+    usage: /<command>
+    description: Teleports the player to the shop location
+  worldspawn:
+    usage: /<command>
+    description: Teleports player to 0, 0
+  crate:
+    usage: /<command>
+    description: Teleports player to the crate location
   fionn:
     usage: /<command>
     description: Yeah!
