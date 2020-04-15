@@ -16,6 +16,9 @@ commands:
     permission: IvanUtilities.OP
     description: Important Message
     usage: /importantmessage message
+  fionn:
+    usage: /<usage>
+    description: Yeah!
   satisfyall:
     permission: IvanUtilities.OP
     description: Feed and Heal everyone

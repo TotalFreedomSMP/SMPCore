@@ -1,15 +1,6 @@
 package me.totalfreedom.smp;
 
-import me.totalfreedom.smp.commands.BeginCommand;
-import me.totalfreedom.smp.commands.ChatallCommand;
-import me.totalfreedom.smp.commands.ClearWeatherCommand;
-import me.totalfreedom.smp.commands.ImportantMessageCommand;
-import me.totalfreedom.smp.commands.OpChatCommand;
-import me.totalfreedom.smp.commands.OwoCommand;
-import me.totalfreedom.smp.commands.PowerBoostCommand;
-import me.totalfreedom.smp.commands.SatisfyallCommand;
-import me.totalfreedom.smp.commands.StrikeAllCommand;
-import me.totalfreedom.smp.commands.UhOhCommand;
+import me.totalfreedom.smp.commands.*;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -48,5 +39,6 @@ public class TFSMP extends JavaPlugin
         this.getCommand("uhoh").setExecutor(new UhOhCommand());
         this.getCommand("begin").setExecutor(new BeginCommand());
         this.getCommand("powerboost").setExecutor(new PowerBoostCommand());
+        this.getCommand("fionn").setExecutor(new FionnCommand());
     }
 }
