@@ -40,5 +40,8 @@ public class TFSMP extends JavaPlugin
         this.getCommand("begin").setExecutor(new BeginCommand());
         this.getCommand("powerboost").setExecutor(new PowerBoostCommand());
         this.getCommand("fionn").setExecutor(new FionnCommand());
+        this.getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
+        this.getCommand("shop").setExecutor(new ShopCommand());
+        this.getCommand("crate").setExecutor(new CrateCommand());
     }
 }
