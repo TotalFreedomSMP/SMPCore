@@ -16,7 +16,7 @@ public class CrateCommand implements CommandExecutor
         if(cmd.getName().equalsIgnoreCase("crate")){
             Player player = (Player) sender;
             player.sendMessage(ChatColor.YELLOW + "Teleporting to the crates...");
-            player.teleport(new Location(Bukkit.getWorld("spawn"), -158, 3, -11));
+            player.teleport(new Location(Bukkit.getWorld("spawn"), -158, 3, -165));
             return true;
         }
         return false;
