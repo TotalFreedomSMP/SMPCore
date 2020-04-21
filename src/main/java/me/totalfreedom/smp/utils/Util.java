@@ -1,12 +1,18 @@
 package me.totalfreedom.smp.utils;
 
+import io.papermc.lib.PaperLib;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 
 public class Util
 {
@@ -14,6 +20,7 @@ public class Util
     public static final List<ChatColor> CHAT_COLOR_POOL;
     private static final Random RANDOM;
     private static Iterator<ChatColor> CHAT_COLOR_ITERATOR;
+    private static HashMap<String, Long> cooldown = new HashMap<>();
 
     static
     {
@@ -39,7 +46,61 @@ public class Util
     public static int random(final int min, final int max)
     {
         final int range = max - min + 1;
-        final int value = (int)(Math.random() * range) + min;
-        return value;
+        return (int)(Math.random() * range) + min;
+    }
+
+    public static Long getSecondsLeft(long prevTime, int timeAdd)
+    {
+        return prevTime / 1000L + timeAdd - System.currentTimeMillis() / 1000L;
+    }
+
+    public static void randomTeleport(Player player)
+    {
+        int cooldownTime = 20;
+
+        if (cooldown.containsKey(player.getName()))
+        {
+            long secondsLeft = getSecondsLeft(cooldown.get(player.getName()), cooldownTime);
+            if (secondsLeft > 0L)
+            {
+                player.sendMessage(ChatColor.RED + "You have to wait " + secondsLeft + " seconds before teleporting again.");
+                return;
+            }
+        }
+
+        cooldown.put(player.getName(), System.currentTimeMillis());
+
+        Random rand = new Random();
+        Location oldLoc = player.getLocation();
+        Location newLoc = oldLoc.clone();
+        Block topBlock = player.getWorld().getHighestBlockAt(newLoc);
+        int maxDist = 3000 / 2;
+        int minDist = 500 / 2;
+        double xAdd;
+        double zAdd;
+        double x;
+        double z;
+        int count = 0;
+        while ((topBlock.isLiquid()
+                // these ones blocks that things that players can spawn on in the ocean
+                || topBlock.getBlockData().getMaterial().equals(Material.KELP)
+                || topBlock.getBlockData().getMaterial().equals(Material.KELP_PLANT)
+                || topBlock.getBlockData().getMaterial().equals(Material.SEAGRASS)
+                || topBlock.getBlockData().getMaterial().equals(Material.TALL_SEAGRASS)
+                || newLoc.equals(oldLoc)) && count < 3)
+        {
+            count++;
+            xAdd = rand.nextDouble() * (maxDist - minDist) + minDist;
+            xAdd = (rand.nextDouble() - 0.5D > 0.0D) ? xAdd : -xAdd;
+            zAdd = rand.nextDouble() * (maxDist - minDist) + minDist;
+            zAdd = (rand.nextDouble() - 0.5D > 0.0D) ? zAdd : -zAdd;
+            x = oldLoc.getX() + xAdd;
+            z = oldLoc.getZ() + zAdd;
+            newLoc = new Location(Bukkit.getWorld("world"), x, player.getWorld().getHighestBlockYAt((int)x, (int)z), z);
+            topBlock = newLoc.getBlock();
+        }
+        newLoc.setY(newLoc.getY() + 2.0D);
+        PaperLib.teleportAsync(player, newLoc);
+        player.sendMessage(ChatColor.GREEN + "You have been randomly teleported!");
     }
 }

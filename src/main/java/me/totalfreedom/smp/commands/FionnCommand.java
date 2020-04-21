@@ -12,7 +12,7 @@ public class FionnCommand implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-        if (command.getName().equalsIgnoreCase("fionn") && sender.getName().equalsIgnoreCase("dewonye1000"))
+        if (sender.getName().equalsIgnoreCase("dewonye1000"))
         {
             sender.sendMessage("Yes master fionn");
             for (Player player : Bukkit.getOnlinePlayers())
@@ -27,7 +27,8 @@ public class FionnCommand implements CommandExecutor
                 Bukkit.broadcastMessage(ChatColor.DARK_RED + "FIONN SHOWS NO MERCY");
             }
             return true;
-
+        } else {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
         }
         return false;
     }

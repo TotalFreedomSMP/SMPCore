@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package me.totalfreedom.smp.commands;
 
 import org.apache.commons.lang.StringUtils;
@@ -21,9 +17,9 @@ public class PowerBoostCommand implements CommandExecutor
             return false;
         }
         final String message = StringUtils.join(args, " ");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost faction " + message + " 9999999999");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost player " + sender.getName() + " 9999999999");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f setpower " + sender.getName() + " 9999999999");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost faction " + message + "  2147483647");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost player " + sender.getName() + " 2147483647");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f setpower " + sender.getName() + " 2147483647");
         sender.sendMessage(ChatColor.GRAY + "Ok, powerboosted the specified faction: " + ChatColor.GOLD + message + ChatColor.GRAY + ".");
         return true;
     }

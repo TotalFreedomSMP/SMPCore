@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package me.totalfreedom.smp.commands;
 
 import org.bukkit.Bukkit;
