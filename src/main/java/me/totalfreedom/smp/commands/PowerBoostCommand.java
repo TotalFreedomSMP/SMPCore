@@ -16,7 +16,7 @@ public class PowerBoostCommand implements CommandExecutor
         {
             return false;
         }
-        final String message = StringUtils.join(args, " ");
+        String message = StringUtils.join(args, " ");
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost faction " + message + "  2147483647");
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f powerboost player " + sender.getName() + " 2147483647");
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "f setpower " + sender.getName() + " 2147483647");

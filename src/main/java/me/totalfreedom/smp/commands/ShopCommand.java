@@ -1,5 +1,6 @@
 package me.totalfreedom.smp.commands;
 
+import io.papermc.lib.PaperLib;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -10,16 +11,18 @@ import org.bukkit.entity.Player;
 
 public class ShopCommand implements CommandExecutor
 {
-
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-        if(cmd.getName().equalsIgnoreCase("shop")){
-            Player player = (Player) sender;
-            player.sendMessage(ChatColor.YELLOW + "Teleporting to the shop...");
-            player.teleport(new Location(Bukkit.getWorld("spawn"), -192, 4, -203));
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
+    {
+        if (!(sender instanceof Player))
+        {
+            sender.sendMessage(ChatColor.RED + "Only players may execute this command.");
             return true;
         }
-        return false;
+        Player player = (Player)sender;
+        player.sendMessage(ChatColor.YELLOW + "Teleporting to the shop...");
+        PaperLib.teleportAsync(player, new Location(Bukkit.getWorld("spawn"), -192, 4, -203));
+        return true;
     }
 }
 

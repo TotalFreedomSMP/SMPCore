@@ -27,9 +27,11 @@ public class FionnCommand implements CommandExecutor
                 Bukkit.broadcastMessage(ChatColor.DARK_RED + "FIONN SHOWS NO MERCY");
             }
             return true;
-        } else {
+        }
+        else
+        {
             sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
         }
-        return false;
+        return true;
     }
 }

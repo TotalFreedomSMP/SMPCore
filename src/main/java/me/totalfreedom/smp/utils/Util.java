@@ -16,16 +16,15 @@ import org.bukkit.entity.Player;
 
 public class Util
 {
-    public static final Map<String, ChatColor> CHAT_COLOR_NAMES;
-    public static final List<ChatColor> CHAT_COLOR_POOL;
-    private static final Random RANDOM;
-    private static Iterator<ChatColor> CHAT_COLOR_ITERATOR;
+    public static Map<String, ChatColor> CHAT_COLOR_NAMES;
+    public static List<ChatColor> CHAT_COLOR_POOL;
+    private static Random RANDOM;
     private static HashMap<String, Long> cooldown = new HashMap<>();
 
     static
     {
         RANDOM = new Random();
-        CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
+        CHAT_COLOR_NAMES = new HashMap<>();
         CHAT_COLOR_POOL = Arrays.asList(ChatColor.DARK_RED, ChatColor.RED, ChatColor.GOLD, ChatColor.YELLOW, ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.AQUA, ChatColor.DARK_AQUA, ChatColor.BLUE, ChatColor.DARK_BLUE, ChatColor.DARK_PURPLE, ChatColor.LIGHT_PURPLE);
         for (final ChatColor chatColor : CHAT_COLOR_POOL)
         {
@@ -41,12 +40,6 @@ public class Util
     public static ChatColor randomChatColor()
     {
         return CHAT_COLOR_POOL.get(RANDOM.nextInt(CHAT_COLOR_POOL.size()));
-    }
-
-    public static int random(final int min, final int max)
-    {
-        final int range = max - min + 1;
-        return (int)(Math.random() * range) + min;
     }
 
     public static Long getSecondsLeft(long prevTime, int timeAdd)
@@ -82,7 +75,8 @@ public class Util
         double z;
         int count = 0;
         while ((topBlock.isLiquid()
-                // these ones blocks that things that players can spawn on in the ocean
+                // dont have players spawn on these blocks
+                || topBlock.getBlockData().getMaterial().equals(Material.LAVA)
                 || topBlock.getBlockData().getMaterial().equals(Material.KELP)
                 || topBlock.getBlockData().getMaterial().equals(Material.KELP_PLANT)
                 || topBlock.getBlockData().getMaterial().equals(Material.SEAGRASS)

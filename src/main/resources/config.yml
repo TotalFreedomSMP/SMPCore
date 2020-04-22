@@ -1,0 +1,8 @@
+#
+# TF-SMP v1.2 Configuration File
+#
+
+server:
+  motd: "TotalFreedom SMP - Wash Your Hands\nMC 1.15.2"
+  tablist_header: '&bWelcome to &eTotalFreedom SMP&b!'
+  tablist_footer: '&bWash your Hands!'

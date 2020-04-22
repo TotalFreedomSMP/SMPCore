@@ -1,78 +1,50 @@
 name: TF-SMP
-version: 1.1
+version: ${project.version}
 main: me.totalfreedom.smp.TFSMP
 author: Telesphoreo
 description: Plugin for the TotalFreedom SMP server.
 api-version: 1.15
 commands:
   begin:
-    permission: smp.warp
-    description: Randomly Teleport
-    usage: /begin
-  chatall:
-    permission: IvanUtilities.OP
-    description: Chat as everyone.
-    usage: /chatall message
+    description: Get started with SMP.
+    usage: /<command>
   clearweather:
-    permission: IvanUtilities.default
-    description: Clears weather in all worlds
-    usage: /weather
+    description: Clears the weather in all worlds
+    usage: /<command>
   crate:
     usage: /<command>
     description: Teleports player to the crate location
   fionn:
     usage: /<command>
     description: Yeah!
-  importantmessage:
-    permission: IvanUtilities.OP
-    description: Important Message
-    usage: /importantmessage message
-  opchat:
+  adminchat:
+    usage: /<command> <message>
+    description: Speak with other staff members
     aliases: [o, oc, adminchat, ac]
-    permission: IvanUtilities.OP
-    description: Speak with other OPs
-    usage: /opchat message
-  owo:
-    permission: IvanUtilities.OP
-    description: Owo!
-    usage: /owo
+    permission: tfsmp.adminchat
   powerboost:
-    permission: IvanUtilities.default
-    description: Powerboost faction
-    usage: /powerboost <faction>
+    permission: tfsmp.powerboost
+    description: Powerboost your faction
+    usage: /<command> <faction>
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
     aliases: [rtp]
-  strikeall:
-    permission: IvanUtilities.OP
-    description: Strike all!
+  satisfyall:
+    permission: tfsmp.satisfyall
+    description: Feed and heal everyone
     usage: /<command>
+  say:
+    description: Talk as the server
+    usage: /<command> <message>
+    permission: tfsmp.say
   shop:
     description: Teleports the player to the shop location
     usage: /<command>
+  smp:
+    description: Reloads the configuration file
+    usage: /<command>
+    permission: tfsmp.smp
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>
-  satisfyall:
-    permission: IvanUtilities.OP
-    description: Feed and Heal everyone
-    usage: /satisfyall
-  uhoh:
-    permission: IvanUtilities.OP
-    description: Uh oh! Stinky!
-    usage: /uhoh
-
-permissions:
-  IvanUtilities.OP:
-    description: Gives access to all commands
-    default: op
-  IvanUtilities.troll:
-    description: Gives access to some commands
-    default: op
-  IvanUtilities.default:
-    description: idiot
-    default: op
-  smp.warp:
-    description: bruh
-    default: op

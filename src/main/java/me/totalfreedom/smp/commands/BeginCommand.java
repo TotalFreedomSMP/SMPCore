@@ -1,10 +1,7 @@
 package me.totalfreedom.smp.commands;
 
-import java.util.Random;
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.api.Permissions;
 import me.totalfreedom.smp.utils.Util;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +14,8 @@ public class BeginCommand extends SMPBase implements CommandExecutor
     {
         if (!(sender instanceof Player))
         {
-            return false;
+            sender.sendMessage(ChatColor.RED + "Only players may execute this command.");
+            return true;
         }
         Player player = (Player)sender;
         if (!player.hasPermission("smp.noadd"))

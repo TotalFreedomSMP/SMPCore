@@ -7,8 +7,8 @@ import org.bukkit.Server;
 
 public class SMPBase
 {
+    protected static LuckPerms api = TFSMP.getLuckPermsAPI();
     protected TFSMP plugin = TFSMP.plugin;
     protected Server server = TFSMP.server;
     protected Logger logger = Bukkit.getLogger();
-    protected static LuckPerms api = TFSMP.getLuckPermsAPI();
 }
