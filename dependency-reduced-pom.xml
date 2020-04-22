@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>me.totalfreedom</groupId>
   <artifactId>TF-SMP</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <scm>
     <connection>scm:git:git@github.com:fionnn/tfsmp.git</connection>
     <developerConnection>scm:git:git@github.com:fionnn/tfsmp.git</developerConnection>
@@ -155,12 +155,6 @@
     </repository>
   </repositories>
   <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>

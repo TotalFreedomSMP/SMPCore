@@ -5,6 +5,8 @@ import java.util.concurrent.CompletableFuture;
 import me.totalfreedom.smp.SMPBase;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.model.user.UserManager;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class Permissions extends SMPBase
@@ -33,10 +35,49 @@ public class Permissions extends SMPBase
         return userManager.getUser(uuid).getPrimaryGroup();
     }
 
+    public String getDisplay(String name)
+    {
+        Player player = Bukkit.getPlayer(name);
+        return getDisplay(player);
+    }
+
+    public String getDisplay(Player player)
+    {
+        if (!(player instanceof Player))
+        {
+            return ChatColor.DARK_PURPLE + "Console";
+        }
+        else if (isModerator(player))
+        {
+            return ChatColor.LIGHT_PURPLE + "Moderator";
+        }
+        else if (isAdmin(player))
+        {
+            return ChatColor.RED + "Admin";
+        }
+        else if (isDeveloper(player))
+        {
+            return ChatColor.DARK_PURPLE + "Developer";
+        }
+        else if (isBuilder(player))
+        {
+            return ChatColor.DARK_AQUA + "Builder";
+        }
+        else if (isManager(player))
+        {
+            return ChatColor.YELLOW + "Manager";
+        }
+        else if (isOwner(player))
+        {
+            return ChatColor.DARK_RED + "Owner";
+        }
+
+        return ChatColor.GRAY + "Player";
+    }
 
     public boolean isPlayer(Player player)
     {
-        return inGroup(player, "player");
+        return inGroup(player, "default");
     }
 
     public boolean isModerator(Player player)
