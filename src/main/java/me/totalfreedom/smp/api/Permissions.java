@@ -26,6 +26,14 @@ public class Permissions extends SMPBase
         });
     }
 
+    public String getGroup(Player player)
+    {
+        UUID uuid = player.getUniqueId();
+        UserManager userManager = api.getUserManager();
+        return userManager.getUser(uuid).getPrimaryGroup();
+    }
+
+
     public boolean isPlayer(Player player)
     {
         return inGroup(player, "player");
@@ -33,31 +41,31 @@ public class Permissions extends SMPBase
 
     public boolean isModerator(Player player)
     {
-        return inGroup(player, "mod");
+        return getGroup(player).equals("mod");
     }
 
     public boolean isAdmin(Player player)
     {
-        return inGroup(player, "admin");
+        return getGroup(player).equals("admin");
     }
 
     public boolean isDeveloper(Player player)
     {
-        return inGroup(player, "developer");
+        return getGroup(player).equals("developer");
     }
 
     public boolean isManager(Player player)
     {
-        return inGroup(player, "manager");
+        return getGroup(player).equals("manager");
     }
 
     public boolean isBuilder(Player player)
     {
-        return inGroup(player, "builder");
+        return getGroup(player).equals("builder");
     }
 
     public boolean isOwner(Player player)
     {
-        return inGroup(player, "owner");
+        return getGroup(player).equals("owner");
     }
 }

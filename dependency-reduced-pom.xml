@@ -4,6 +4,11 @@
   <groupId>me.totalfreedom</groupId>
   <artifactId>TF-SMP</artifactId>
   <version>1.2</version>
+  <scm>
+    <connection>scm:git:git@github.com:fionnn/tfsmp.git</connection>
+    <developerConnection>scm:git:git@github.com:fionnn/tfsmp.git</developerConnection>
+    <url>git@github.com:fionnn/tfsmp.git</url>
+  </scm>
   <build>
     <resources>
       <resource>
@@ -34,6 +39,108 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>4.0.0</version>
+        <executions>
+          <execution>
+            <id>get-the-git-infos</id>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>validate-the-git-infos</id>
+            <phase>package</phase>
+            <goals>
+              <goal>validateRevision</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+          <prefix>git</prefix>
+          <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+          <verbose>false</verbose>
+          <format>properties</format>
+          <failOnNoGitDirectory>false</failOnNoGitDirectory>
+          <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
+          <includeOnlyProperties>
+            <includeOnlyProperty>git.commit.id.abbrev</includeOnlyProperty>
+          </includeOnlyProperties>
+          <gitDescribe>
+            <skip>false</skip>
+            <always>false</always>
+            <abbrev>7</abbrev>
+            <dirty>-dirty</dirty>
+            <match>*</match>
+          </gitDescribe>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <propertyfile>
+                  <entry />
+                  <entry />
+                  <entry />
+                  <entry />
+                  <entry />
+                </propertyfile>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>${project.basedir}/src/main/resources/build.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <buildNumberPropertyName>maven.buildnumber</buildNumberPropertyName>
+          <buildNumberPropertiesFileLocation>${project.basedir}/src/main/resources/build.properties</buildNumberPropertiesFileLocation>
+          <format>{0,number,#}</format>
+          <items>
+            <item>buildNumber</item>
+          </items>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -68,7 +175,9 @@
     </dependency>
   </dependencies>
   <properties>
+    <maven.build.timestamp.format>MM/dd/yyyy HH:mm</maven.build.timestamp.format>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jar.finalName>${project.name}</jar.finalName>
+    <timestamp>${maven.build.timestamp}</timestamp>
   </properties>
 </project>

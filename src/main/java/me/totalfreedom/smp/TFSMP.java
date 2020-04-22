@@ -1,5 +1,7 @@
 package me.totalfreedom.smp;
 
+import java.io.InputStream;
+import java.util.Properties;
 import me.totalfreedom.smp.api.Permissions;
 import me.totalfreedom.smp.commands.AdminChatCommand;
 import me.totalfreedom.smp.commands.BeginCommand;
@@ -27,7 +29,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class TFSMP extends JavaPlugin
 {
     public static TFSMP plugin;
+    public static String pluginVersion;
     public static Server server;
+    public static final BuildProperties build = new BuildProperties();
     public ChatListener cl;
     public LoginProcess lp;
     public ServerListener sl;
@@ -50,6 +54,8 @@ public class TFSMP extends JavaPlugin
     public void onLoad()
     {
         config = new MainConfig(this);
+        pluginVersion = plugin.getDescription().getVersion();
+        build.load(this);
     }
 
     @Override
@@ -71,18 +77,18 @@ public class TFSMP extends JavaPlugin
 
     public void loadCommands()
     {
-        getCommand("satisfyall").setExecutor(new SatisfyallCommand());
-        getCommand("clearweather").setExecutor(new ClearWeatherCommand());
         getCommand("adminchat").setExecutor(new AdminChatCommand());
         getCommand("begin").setExecutor(new BeginCommand());
-        getCommand("powerboost").setExecutor(new PowerBoostCommand());
-        getCommand("fionn").setExecutor(new FionnCommand());
-        getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
-        getCommand("shop").setExecutor(new ShopCommand());
+        getCommand("clearweather").setExecutor(new ClearWeatherCommand());
         getCommand("crate").setExecutor(new CrateCommand());
+        getCommand("fionn").setExecutor(new FionnCommand());
+        getCommand("powerboost").setExecutor(new PowerBoostCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
+        getCommand("satisfyall").setExecutor(new SatisfyallCommand());
         getCommand("say").setExecutor(new SayCommand());
+        getCommand("shop").setExecutor(new ShopCommand());
         getCommand("smp").setExecutor(new SMPCommand());
+        getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
     }
 
     public void loadListeners()
@@ -91,5 +97,41 @@ public class TFSMP extends JavaPlugin
         lp = new LoginProcess(this);
         sl = new ServerListener(this);
         tl = new TabListener(this);
+    }
+
+    public static class BuildProperties
+    {
+        public String author;
+        public String codename;
+        public String version;
+        public String number;
+        public String date;
+        public String head;
+
+        public void load(TFSMP plugin)
+        {
+            try
+            {
+                final Properties props;
+
+                try (InputStream in = plugin.getResource("build.properties"))
+                {
+                    props = new Properties();
+                    props.load(in);
+                }
+
+                author = props.getProperty("buildAuthor", "unknown");
+                version = props.getProperty("buildVersion", pluginVersion);
+                number = props.getProperty("buildNumber", "1");
+                date = props.getProperty("buildDate", "unknown");
+                // Need to do this or it will display ${git.commit.id.abbrev}
+                head = props.getProperty("buildHead", "unknown").replace("${git.commit.id.abbrev}", "unknown");
+            }
+            catch (Exception ex)
+            {
+                server.getLogger().severe("Could not load build properties! Did you compile with IntelliJ / Maven?");
+                ex.printStackTrace();
+            }
+        }
     }
 }
