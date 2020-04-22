@@ -11,7 +11,7 @@ import me.totalfreedom.smp.commands.FionnCommand;
 import me.totalfreedom.smp.commands.PowerBoostCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
 import me.totalfreedom.smp.commands.SMPCommand;
-import me.totalfreedom.smp.commands.SatisfyallCommand;
+import me.totalfreedom.smp.commands.SatisfyAllCommand;
 import me.totalfreedom.smp.commands.SayCommand;
 import me.totalfreedom.smp.commands.ShopCommand;
 import me.totalfreedom.smp.commands.WorldSpawnCommand;
@@ -84,7 +84,7 @@ public class TFSMP extends JavaPlugin
         getCommand("fionn").setExecutor(new FionnCommand());
         getCommand("powerboost").setExecutor(new PowerBoostCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
-        getCommand("satisfyall").setExecutor(new SatisfyallCommand());
+        getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
         getCommand("say").setExecutor(new SayCommand());
         getCommand("shop").setExecutor(new ShopCommand());
         getCommand("smp").setExecutor(new SMPCommand());
