@@ -40,7 +40,7 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
             }
             try
             {
-                plugin.reloadConfig();
+                plugin.config.load();
                 sender.sendMessage(ChatColor.GRAY + "The configuration file has been reloaded.");
                 return true;
             }

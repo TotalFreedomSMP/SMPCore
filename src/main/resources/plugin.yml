@@ -42,8 +42,8 @@ commands:
     description: Teleports the player to the shop location
     usage: /<command>
   smp:
-    description: Reloads the configuration file
-    usage: /<command>
+    description: Shows information about the SMP plugin or optionally reloads it.
+    usage: /<command> [reload]
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>
