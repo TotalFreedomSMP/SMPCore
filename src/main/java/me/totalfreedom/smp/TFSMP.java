@@ -53,6 +53,7 @@ public class TFSMP extends JavaPlugin
     @Override
     public void onLoad()
     {
+        plugin = this;
         config = new MainConfig(this);
         pluginVersion = plugin.getDescription().getVersion();
         build.load(this);
@@ -61,7 +62,6 @@ public class TFSMP extends JavaPlugin
     @Override
     public void onEnable()
     {
-        plugin = this;
         server = getServer();
         config.load();
         perms = new Permissions();
@@ -102,7 +102,6 @@ public class TFSMP extends JavaPlugin
     public static class BuildProperties
     {
         public String author;
-        public String codename;
         public String version;
         public String number;
         public String date;

@@ -44,7 +44,6 @@ commands:
   smp:
     description: Reloads the configuration file
     usage: /<command>
-    permission: tfsmp.smp
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>

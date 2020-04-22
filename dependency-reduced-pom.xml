@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>me.totalfreedom</groupId>
   <artifactId>TF-SMP</artifactId>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <scm>
     <connection>scm:git:git@github.com:fionnn/tfsmp.git</connection>
     <developerConnection>scm:git:git@github.com:fionnn/tfsmp.git</developerConnection>

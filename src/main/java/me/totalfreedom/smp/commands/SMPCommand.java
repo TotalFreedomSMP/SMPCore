@@ -29,7 +29,6 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
                             + ChatColor.BLUE + "%s",
                     build.date,
                     build.author));
-            sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "https://github.com/Telesphoreo/LoginMessages" + ChatColor.GREEN + " for more information");
             return true;
         }
         if (args[0].toLowerCase().equals("reload"))

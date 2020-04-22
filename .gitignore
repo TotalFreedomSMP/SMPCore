@@ -8,4 +8,4 @@
 # Mac shit
 .DS_Store
 
-build.properties
+src/main/resources/build.properties
