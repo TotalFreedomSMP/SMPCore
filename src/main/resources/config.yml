@@ -3,6 +3,6 @@
 #
 
 server:
-  motd: "TotalFreedom SMP - Wash Your Hands\nMC 1.15.2"
-  tablist_header: '&bWelcome to &eTotalFreedom SMP&b!'
-  tablist_footer: '&bWash your Hands!'
+  motd: "TotalFreedom SMP (MC 1.15.2) - Stay Home"
+  tablist_header: ' \n  &bWelcome to &eTotalFreedom SMP&b!  \n '
+  tablist_footer: ' \n  &b#StayHome \n  '

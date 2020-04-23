@@ -3,18 +3,20 @@ package me.totalfreedom.smp.utils;
 import io.papermc.lib.PaperLib;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import me.totalfreedom.smp.SMPBase;
+import me.totalfreedom.smp.TFSMP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Util
+public class Util extends SMPBase
 {
     public static Map<String, ChatColor> CHAT_COLOR_NAMES;
     public static List<ChatColor> CHAT_COLOR_POOL;
@@ -45,6 +47,19 @@ public class Util
     public static Long getSecondsLeft(long prevTime, int timeAdd)
     {
         return prevTime / 1000L + timeAdd - System.currentTimeMillis() / 1000L;
+    }
+
+    public static void adminChat(CommandSender sender, String message)
+    {
+        Player player = Bukkit.getPlayer(sender.getName());
+        String rank = TFSMP.plugin.perms.getDisplay(player);
+        String format = ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + rank
+                + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
+        Bukkit.getLogger().info(ChatColor.stripColor(format));
+        Bukkit.getOnlinePlayers()
+                .stream()
+                .filter((players) -> (players.hasPermission("tfsmp.adminChat")))
+                .forEachOrdered((players) -> players.sendMessage(format));
     }
 
     public static void randomTeleport(Player player)

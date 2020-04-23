@@ -1,6 +1,7 @@
 package me.totalfreedom.smp.commands;
 
 import me.totalfreedom.smp.SMPBase;
+import me.totalfreedom.smp.utils.Util;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,18 +14,13 @@ public class AdminChatCommand extends SMPBase implements CommandExecutor
 {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-        String message = StringUtils.join(args, " ");
-
-        for (Player p : Bukkit.getOnlinePlayers())
+        if (args.length == 0)
         {
-            if (p.isOp() || p.hasPermission("tfsmp.adminchat"))
-            {
-                String format = ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + plugin.perms.getDisplay(sender.getName())
-                        + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
-                p.sendMessage(format);
-                server.getLogger().info(format);
-            }
+            sender.sendMessage(ChatColor.RED + "Please provide a message");
+            return true;
         }
+        String message = StringUtils.join(args, " ");
+        Util.adminChat(sender, message);
         return true;
     }
 }
