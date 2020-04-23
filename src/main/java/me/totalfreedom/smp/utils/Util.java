@@ -66,7 +66,7 @@ public class Util
         Random rand = new Random();
         Location oldLoc = player.getLocation();
         Location newLoc = oldLoc.clone();
-        Block topBlock = player.getWorld().getHighestBlockAt(newLoc);
+        Block topBlock = Bukkit.getWorld("world").getHighestBlockAt(newLoc);
         int maxDist = 3000 / 2;
         int minDist = 500 / 2;
         double xAdd;
@@ -81,6 +81,8 @@ public class Util
                 || topBlock.getBlockData().getMaterial().equals(Material.KELP_PLANT)
                 || topBlock.getBlockData().getMaterial().equals(Material.SEAGRASS)
                 || topBlock.getBlockData().getMaterial().equals(Material.TALL_SEAGRASS)
+                || topBlock.getBlockData().getMaterial().equals(Material.GRAVEL)
+                || topBlock.getBlockData().getMaterial().equals(Material.STONE)
                 || newLoc.equals(oldLoc)) && count < 3)
         {
             count++;
@@ -90,7 +92,7 @@ public class Util
             zAdd = (rand.nextDouble() - 0.5D > 0.0D) ? zAdd : -zAdd;
             x = oldLoc.getX() + xAdd;
             z = oldLoc.getZ() + zAdd;
-            newLoc = new Location(Bukkit.getWorld("world"), x, player.getWorld().getHighestBlockYAt((int)x, (int)z), z);
+            newLoc = new Location(Bukkit.getWorld("world"), x, Bukkit.getWorld("world").getHighestBlockYAt((int)x, (int)z), z);
             topBlock = newLoc.getBlock();
         }
         newLoc.setY(newLoc.getY() + 2.0D);
