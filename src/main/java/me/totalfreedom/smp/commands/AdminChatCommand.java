@@ -20,7 +20,7 @@ public class AdminChatCommand extends SMPBase implements CommandExecutor
             if (p.isOp() || p.hasPermission("tfsmp.adminchat"))
             {
                 String format = ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + plugin.perms.getDisplay(sender.getName())
-                        + ChatColor.DARK_GRAY + "]" + ChatColor.WHITE + ": " + ChatColor.GOLD + message;
+                        + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
                 p.sendMessage(format);
                 server.getLogger().info(format);
             }

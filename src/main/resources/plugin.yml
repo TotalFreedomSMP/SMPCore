@@ -25,7 +25,7 @@ commands:
   powerboost:
     permission: tfsmp.powerboost
     description: Powerboost your faction
-    usage: /<command> <faction>
+    usage: /<command>
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
