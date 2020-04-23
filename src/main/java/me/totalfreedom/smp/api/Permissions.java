@@ -72,7 +72,7 @@ public class Permissions extends SMPBase
             return ChatColor.DARK_RED + "Owner";
         }
 
-        return ChatColor.GRAY + "Player";
+        return ChatColor.GREEN + "Player";
     }
 
     public boolean isPlayer(Player player)
