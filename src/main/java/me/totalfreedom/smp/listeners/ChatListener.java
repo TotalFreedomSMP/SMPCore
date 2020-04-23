@@ -41,12 +41,5 @@ public class ChatListener extends SMPBase implements Listener
             message = StringUtils.remove(message, "@");
         }
         event.setMessage(message);
-        for (final Player p : Bukkit.getOnlinePlayers())
-        {
-            if (ChatColor.stripColor(message).toLowerCase().contains("@" + p.getName().toLowerCase()))
-            {
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.MASTER, 1337.0f, 0.9f);
-            }
-        }
     }
 }
