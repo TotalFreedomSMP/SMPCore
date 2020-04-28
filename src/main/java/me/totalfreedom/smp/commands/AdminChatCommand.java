@@ -16,7 +16,7 @@ public class AdminChatCommand extends SMPBase implements CommandExecutor
     {
         if (args.length == 0)
         {
-            sender.sendMessage(ChatColor.RED + "Please provide a message");
+            sender.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Please provide a message.");
             return true;
         }
         String message = StringUtils.join(args, " ");

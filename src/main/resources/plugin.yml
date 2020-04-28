@@ -3,6 +3,7 @@ version: ${project.version}
 main: me.totalfreedom.smp.TFSMP
 author: Telesphoreo
 description: Plugin for the TotalFreedom SMP server.
+softdepend: [LuckPerms]
 api-version: 1.15
 commands:
   adminchat:
@@ -22,6 +23,10 @@ commands:
   fionn:
     usage: /<command>
     description: Yeah!
+  owo:
+    usage: /<command>
+    description: Owo!
+    permission: tfsmp.owo
   powerboost:
     permission: tfsmp.powerboost
     description: Powerboost your faction
@@ -29,7 +34,7 @@ commands:
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
-    aliases: [rtp]
+    aliases: [rtp, tpr]
   satisfyall:
     permission: tfsmp.satisfyall
     description: Feed and heal everyone
@@ -44,6 +49,12 @@ commands:
   smp:
     description: Shows information about the SMP plugin or optionally reloads it.
     usage: /<command> [reload]
+    aliases: [tfsmp, totalfreedommod, tfm, converse, novelmcsucks, novelmcisdead, versatility]
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>
+    aliases: [localspawn]
+  uhoh:
+    description: Uh oh! Stinky!
+    usage: /<command>
+    permission: tfsmp.uhoh

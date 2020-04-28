@@ -1,5 +1,6 @@
 package me.totalfreedom.smp.commands;
 
+import me.totalfreedom.smp.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -14,11 +15,11 @@ public class ClearWeatherCommand implements CommandExecutor
         World world = Bukkit.getWorld("world");
         if (world == null)
         {
-            sender.sendMessage(ChatColor.DARK_RED + "The server is actually fucked. Contact a staff member ASAP.");
+            sender.sendMessage(Messages.MISSING_WORLD);
             return true;
         }
         world.setStorm(false);
-        sender.sendMessage(ChatColor.RED + "Ok, there is no longer a storm!");
+        Util.action(sender.getName(), "cleared the weather!");
         return true;
     }
 }

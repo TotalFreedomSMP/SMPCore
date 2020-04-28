@@ -14,14 +14,13 @@ public class BeginCommand extends SMPBase implements CommandExecutor
     {
         if (!(sender instanceof Player))
         {
-            sender.sendMessage(ChatColor.RED + "Only players may execute this command.");
+            sender.sendMessage(Messages.PLAYER_ONLY);
             return true;
         }
         Player player = (Player)sender;
         sender.sendMessage(ChatColor.RED + "You are now ready to play SMP! Good luck!");
         sender.sendMessage(ChatColor.GRAY + "If you are wanting to work with someone, send them a teleport request with '/tpa <player>'!");
         sender.sendMessage(ChatColor.GOLD + "To start a faction, type '/f create <name>'");
-        sender.sendMessage(ChatColor.GREEN + "You will now be randomly teleported, please wait...");
         Util.randomTeleport(player);
         return true;
     }

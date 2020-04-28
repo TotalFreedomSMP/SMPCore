@@ -4,6 +4,7 @@ import io.papermc.lib.PaperLib;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,12 +17,18 @@ public class ShopCommand implements CommandExecutor
     {
         if (!(sender instanceof Player))
         {
-            sender.sendMessage(ChatColor.RED + "Only players may execute this command.");
+            sender.sendMessage(Messages.PLAYER_ONLY);
+            return true;
+        }
+        World spawn = Bukkit.getWorld("spawn");
+        if (spawn == null)
+        {
+            sender.sendMessage(Messages.MISSING_WORLD);
             return true;
         }
         Player player = (Player)sender;
-        player.sendMessage(ChatColor.YELLOW + "Teleporting to the shop...");
-        PaperLib.teleportAsync(player, new Location(Bukkit.getWorld("spawn"), -192, 4, -203));
+        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the shop...");
+        PaperLib.teleportAsync(player, new Location(spawn, -192, 4, -203));
         return true;
     }
 }

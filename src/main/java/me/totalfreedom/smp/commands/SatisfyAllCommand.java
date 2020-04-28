@@ -1,5 +1,6 @@
 package me.totalfreedom.smp.commands;
 
+import me.totalfreedom.smp.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -11,12 +12,12 @@ public class SatisfyAllCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args)
     {
-        for (final Player player : Bukkit.getOnlinePlayers())
+        for (Player player : Bukkit.getOnlinePlayers())
         {
             player.setHealth(20.0);
             player.setFoodLevel(20);
-            player.sendMessage(ChatColor.AQUA + sender.getName() + " has fed and healed the entire server!");
         }
+        Util.action(sender.getName(), "fed and healed the entire server!");
         return true;
     }
 }

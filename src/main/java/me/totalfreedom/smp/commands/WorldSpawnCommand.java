@@ -3,6 +3,7 @@ package me.totalfreedom.smp.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,14 +16,19 @@ public class WorldSpawnCommand implements CommandExecutor
     {
         if (!(sender instanceof Player))
         {
-            sender.sendMessage(ChatColor.RED + "Only players may execute this command.");
+            sender.sendMessage(Messages.PLAYER_ONLY);
+            return true;
+        }
+        World world = Bukkit.getWorld("world");
+        if (world == null)
+        {
+            sender.sendMessage(Messages.MISSING_WORLD);
             return true;
         }
         Player player = (Player)sender;
-        player.sendMessage(ChatColor.YELLOW + "Teleporting to the world spawn...");
-        player.teleport(new Location(Bukkit.getWorld("world"), 0, 63, 0));
+        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the world spawn...");
+        player.teleport(new Location(world, 0, 63, 0));
         return true;
-
     }
 }
 

@@ -8,12 +8,14 @@ import me.totalfreedom.smp.commands.BeginCommand;
 import me.totalfreedom.smp.commands.ClearWeatherCommand;
 import me.totalfreedom.smp.commands.CrateCommand;
 import me.totalfreedom.smp.commands.FionnCommand;
+import me.totalfreedom.smp.commands.OwoCommand;
 import me.totalfreedom.smp.commands.PowerBoostCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
 import me.totalfreedom.smp.commands.SMPCommand;
 import me.totalfreedom.smp.commands.SatisfyAllCommand;
 import me.totalfreedom.smp.commands.SayCommand;
 import me.totalfreedom.smp.commands.ShopCommand;
+import me.totalfreedom.smp.commands.UhOhCommand;
 import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.ChatListener;
@@ -38,18 +40,6 @@ public class TFSMP extends JavaPlugin
     public TabListener tl;
     public Permissions perms;
     public MainConfig config;
-
-    public static LuckPerms getLuckPermsAPI()
-    {
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null)
-        {
-            server.getLogger().info("Successfully loaded the LuckPerms API.");
-            return provider.getProvider();
-        }
-        return null;
-    }
-
     @Override
     public void onLoad()
     {
@@ -75,6 +65,18 @@ public class TFSMP extends JavaPlugin
         config.save();
     }
 
+    public static LuckPerms getLuckPermsAPI()
+    {
+        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+        if (provider != null)
+        {
+            server.getLogger().info("Successfully loaded the LuckPerms API.");
+            return provider.getProvider();
+        }
+        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
+        return null;
+    }
+
     public void loadCommands()
     {
         getCommand("adminchat").setExecutor(new AdminChatCommand());
@@ -82,6 +84,7 @@ public class TFSMP extends JavaPlugin
         getCommand("clearweather").setExecutor(new ClearWeatherCommand());
         getCommand("crate").setExecutor(new CrateCommand());
         getCommand("fionn").setExecutor(new FionnCommand());
+        getCommand("owo").setExecutor(new OwoCommand());
         getCommand("powerboost").setExecutor(new PowerBoostCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
         getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
@@ -89,6 +92,7 @@ public class TFSMP extends JavaPlugin
         getCommand("shop").setExecutor(new ShopCommand());
         getCommand("smp").setExecutor(new SMPCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
+        getCommand("uhoh").setExecutor(new UhOhCommand());
     }
 
     public void loadListeners()

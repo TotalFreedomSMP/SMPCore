@@ -8,10 +8,12 @@ import java.util.Map;
 import java.util.Random;
 import me.totalfreedom.smp.SMPBase;
 import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.commands.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -32,6 +34,21 @@ public class Util extends SMPBase
         {
             CHAT_COLOR_NAMES.put(chatColor.name().toLowerCase().replace("_", ""), chatColor);
         }
+    }
+
+    public static void action(String player, String message)
+    {
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + player + " " + message);
+    }
+
+    public static void action(CommandSender sender, String message)
+    {
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + sender.getName() + " " + message);
+    }
+
+    public static void action(Player player, String message)
+    {
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + player.getName() + " " + message);
     }
 
     public static String colorize(final String string)
@@ -55,10 +72,10 @@ public class Util extends SMPBase
         String rank = TFSMP.plugin.perms.getDisplay(player);
         String format = ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + rank
                 + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
-        Bukkit.getLogger().info(ChatColor.stripColor(format));
+        Bukkit.getLogger().info(format);
         Bukkit.getOnlinePlayers()
                 .stream()
-                .filter((players) -> (players.hasPermission("tfsmp.adminChat")))
+                .filter((players) -> (players.hasPermission("tfsmp.adminchat")))
                 .forEachOrdered((players) -> players.sendMessage(format));
     }
 
@@ -79,11 +96,18 @@ public class Util extends SMPBase
         cooldown.put(player.getName(), System.currentTimeMillis());
 
         Random rand = new Random();
+        World world = Bukkit.getWorld("world");
+        if (world == null)
+        {
+            player.sendMessage(Messages.MISSING_WORLD);
+            return;
+        }
+        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You will now be randomly teleported, please wait...");
         Location oldLoc = player.getLocation();
         Location newLoc = oldLoc.clone();
-        Block topBlock = Bukkit.getWorld("world").getHighestBlockAt(newLoc);
-        int maxDist = 3000 / 2;
-        int minDist = 500 / 2;
+        Block topBlock = world.getHighestBlockAt(newLoc);
+        int maxDist = 696969 / 2;
+        int minDist = 4200 / 2;
         double xAdd;
         double zAdd;
         double x;
@@ -97,7 +121,6 @@ public class Util extends SMPBase
                 || topBlock.getBlockData().getMaterial().equals(Material.SEAGRASS)
                 || topBlock.getBlockData().getMaterial().equals(Material.TALL_SEAGRASS)
                 || topBlock.getBlockData().getMaterial().equals(Material.GRAVEL)
-                || topBlock.getBlockData().getMaterial().equals(Material.STONE)
                 || newLoc.equals(oldLoc)) && count < 3)
         {
             count++;
@@ -107,11 +130,11 @@ public class Util extends SMPBase
             zAdd = (rand.nextDouble() - 0.5D > 0.0D) ? zAdd : -zAdd;
             x = oldLoc.getX() + xAdd;
             z = oldLoc.getZ() + zAdd;
-            newLoc = new Location(Bukkit.getWorld("world"), x, Bukkit.getWorld("world").getHighestBlockYAt((int)x, (int)z), z);
+            newLoc = new Location(world, x, world.getHighestBlockYAt((int)x, (int)z), z);
             topBlock = newLoc.getBlock();
         }
         newLoc.setY(newLoc.getY() + 2.0D);
         PaperLib.teleportAsync(player, newLoc);
-        player.sendMessage(ChatColor.GREEN + "You have been randomly teleported!");
+        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have been randomly teleported!");
     }
 }
