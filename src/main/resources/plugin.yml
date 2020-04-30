@@ -17,6 +17,11 @@ commands:
   clearweather:
     description: Clears the weather in all worlds
     usage: /<command>
+  consolesay:
+    description: Send a message from the console
+    usage: /<command> <message>
+    aliases: [csay]
+    permission: tfsmp.consolesay
   crate:
     usage: /<command>
     description: Teleports player to the crate location
@@ -27,14 +32,14 @@ commands:
     usage: /<command>
     description: Owo!
     permission: tfsmp.owo
-  powerboost:
-    permission: tfsmp.powerboost
-    description: Powerboost your faction
-    usage: /<command>
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
     aliases: [rtp, tpr]
+  rawsay:
+    description: Broadcasts a message
+    usage: /<command> <message>
+    permission: tfsmp.rawsay
   satisfyall:
     permission: tfsmp.satisfyall
     description: Feed and heal everyone
