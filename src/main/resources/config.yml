@@ -9,7 +9,7 @@ server:
 
   coords:
     worldspawn:
-      x: 5
+      x: 0
       y: 63
       z: 0
     crate:
@@ -20,3 +20,7 @@ server:
       x: -192
       y: 4
       z: -203
+    spawn:
+      x: -188
+      y:  7
+      z: -143

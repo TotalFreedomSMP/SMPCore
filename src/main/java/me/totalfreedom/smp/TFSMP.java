@@ -3,21 +3,7 @@ package me.totalfreedom.smp;
 import java.io.InputStream;
 import java.util.Properties;
 import me.totalfreedom.smp.api.Permissions;
-import me.totalfreedom.smp.commands.AdminChatCommand;
-import me.totalfreedom.smp.commands.BeginCommand;
-import me.totalfreedom.smp.commands.ClearWeatherCommand;
-import me.totalfreedom.smp.commands.ConsoleSayCommand;
-import me.totalfreedom.smp.commands.CrateCommand;
-import me.totalfreedom.smp.commands.FionnCommand;
-import me.totalfreedom.smp.commands.OwoCommand;
-import me.totalfreedom.smp.commands.RandomTpCommand;
-import me.totalfreedom.smp.commands.RawSayCommand;
-import me.totalfreedom.smp.commands.SMPCommand;
-import me.totalfreedom.smp.commands.SatisfyAllCommand;
-import me.totalfreedom.smp.commands.SayCommand;
-import me.totalfreedom.smp.commands.ShopCommand;
-import me.totalfreedom.smp.commands.UhOhCommand;
-import me.totalfreedom.smp.commands.WorldSpawnCommand;
+import me.totalfreedom.smp.commands.*;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.ChatListener;
 import me.totalfreedom.smp.listeners.LoginProcess;
@@ -95,6 +81,7 @@ public class TFSMP extends JavaPlugin
         getCommand("smp").setExecutor(new SMPCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
         getCommand("uhoh").setExecutor(new UhOhCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
     }
 
     public void loadListeners()
