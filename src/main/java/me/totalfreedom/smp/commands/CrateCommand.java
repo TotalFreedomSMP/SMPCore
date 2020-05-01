@@ -1,6 +1,7 @@
 package me.totalfreedom.smp.commands;
 
 import io.papermc.lib.PaperLib;
+import me.totalfreedom.smp.TFSMP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -8,6 +9,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class CrateCommand implements CommandExecutor
@@ -15,6 +17,9 @@ public class CrateCommand implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
+
+        FileConfiguration cfg = TFSMP.getPlugin(TFSMP.class).getConfig();
+
         if (!(sender instanceof Player))
         {
             sender.sendMessage(Messages.PLAYER_ONLY);
@@ -26,9 +31,14 @@ public class CrateCommand implements CommandExecutor
             sender.sendMessage(Messages.MISSING_WORLD);
             return true;
         }
+
+        int x = cfg.getInt("server.coords.crate.x");
+        int y = cfg.getInt("server.coords.crate.y");
+        int z = cfg.getInt("server.coords.crate.z");
+
         Player player = (Player)sender;
         player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the crates...");
-        PaperLib.teleportAsync(player, new Location(spawn, -158, 3, -165));
+        PaperLib.teleportAsync(player, new Location(spawn, x, y, z));
         return true;
     }
 }

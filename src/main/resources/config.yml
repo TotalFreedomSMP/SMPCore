@@ -6,3 +6,17 @@ server:
   motd: "TotalFreedom SMP (MC 1.7 - 1.15.2) - Stay Home"
   tablist_header: ' \n  &bWelcome to &eTotalFreedom SMP&b!  \n '
   tablist_footer: ' \n  &b#StayHome \n  '
+
+  coords:
+    worldspawn:
+      x: 5
+      y: 63
+      z: 0
+    crate:
+      x: -158
+      y: 3
+      z: -165
+    shop:
+      x: -192
+      y: 4
+      z: -203
