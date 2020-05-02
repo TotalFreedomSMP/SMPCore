@@ -3,7 +3,21 @@ package me.totalfreedom.smp;
 import java.io.InputStream;
 import java.util.Properties;
 import me.totalfreedom.smp.api.Permissions;
-import me.totalfreedom.smp.commands.*;
+import me.totalfreedom.smp.commands.AdminChatCommand;
+import me.totalfreedom.smp.commands.BeginCommand;
+import me.totalfreedom.smp.commands.ClearWeatherCommand;
+import me.totalfreedom.smp.commands.ConsoleSayCommand;
+import me.totalfreedom.smp.commands.CrateCommand;
+import me.totalfreedom.smp.commands.FionnCommand;
+import me.totalfreedom.smp.commands.OwoCommand;
+import me.totalfreedom.smp.commands.RandomTpCommand;
+import me.totalfreedom.smp.commands.RawSayCommand;
+import me.totalfreedom.smp.commands.SMPCommand;
+import me.totalfreedom.smp.commands.SatisfyAllCommand;
+import me.totalfreedom.smp.commands.SayCommand;
+import me.totalfreedom.smp.commands.ShopCommand;
+import me.totalfreedom.smp.commands.UhOhCommand;
+import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.ChatListener;
 import me.totalfreedom.smp.listeners.LoginListener;
@@ -17,16 +31,28 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class TFSMP extends JavaPlugin
 {
+    public static final BuildProperties build = new BuildProperties();
     public static TFSMP plugin;
     public static String pluginVersion;
     public static Server server;
-    public static final BuildProperties build = new BuildProperties();
     public ChatListener cl;
     public LoginListener loli; // lynx likes this
     public ServerListener sl;
     public TabListener tl;
     public Permissions perms;
     public MainConfig config;
+
+    public static LuckPerms getLuckPermsAPI()
+    {
+        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+        if (provider != null)
+        {
+            server.getLogger().info("Successfully loaded the LuckPerms API.");
+            return provider.getProvider();
+        }
+        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
+        return null;
+    }
 
     @Override
     public void onLoad()
@@ -51,18 +77,6 @@ public class TFSMP extends JavaPlugin
     public void onDisable()
     {
         config.save();
-    }
-
-    public static LuckPerms getLuckPermsAPI()
-    {
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null)
-        {
-            server.getLogger().info("Successfully loaded the LuckPerms API.");
-            return provider.getProvider();
-        }
-        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
-        return null;
     }
 
     public void loadCommands()

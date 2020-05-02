@@ -14,7 +14,7 @@ public class UhOhCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.uhoh"))
+        if (!sender.hasPermission("tfsmp.uhoh"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

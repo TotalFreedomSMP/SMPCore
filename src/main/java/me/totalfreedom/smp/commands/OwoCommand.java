@@ -13,7 +13,7 @@ public class OwoCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.owo"))
+        if (!sender.hasPermission("tfsmp.owo"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

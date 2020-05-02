@@ -13,7 +13,7 @@ public class RawSayCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.adminchat"))
+        if (!sender.hasPermission("tfsmp.adminchat"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

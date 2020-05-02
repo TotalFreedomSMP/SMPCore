@@ -1,7 +1,6 @@
 package me.totalfreedom.smp.commands;
 
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -9,7 +8,6 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class WorldSpawnCommand extends SMPBase implements CommandExecutor

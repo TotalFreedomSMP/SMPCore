@@ -1,6 +1,5 @@
 package me.totalfreedom.smp.commands;
 
-import javafx.print.PageLayout;
 import me.totalfreedom.smp.SMPBase;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
@@ -14,7 +13,7 @@ public class ConsoleSayCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.consolesay"))
+        if (!sender.hasPermission("tfsmp.consolesay"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

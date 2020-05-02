@@ -12,7 +12,7 @@ public class SayCommand implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.say"))
+        if (!sender.hasPermission("tfsmp.say"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

@@ -11,7 +11,7 @@ public class SatisfyAllCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args)
     {
-        if  (!sender.hasPermission("tfsmp.satisfyall"))
+        if (!sender.hasPermission("tfsmp.satisfyall"))
         {
             sender.sendMessage(Messages.NO_PERMISSION);
             return true;

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import me.totalfreedom.smp.SMPBase;
 import me.totalfreedom.smp.TFSMP;
 import me.totalfreedom.smp.commands.Messages;
 import org.bukkit.Bukkit;
@@ -89,7 +88,7 @@ public class Util
             if (secondsLeft > 0L)
             {
                 player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have to wait "
-                + ChatColor.GOLD + secondsLeft + " seconds before teleporting again.");
+                        + ChatColor.GOLD + secondsLeft + ChatColor.LIGHT_PURPLE + " seconds before teleporting again.");
                 return;
             }
         }
