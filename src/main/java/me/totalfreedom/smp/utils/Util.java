@@ -88,7 +88,7 @@ public class Util
             if (secondsLeft > 0L)
             {
                 player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have to wait "
-                        + ChatColor.GOLD + secondsLeft + ChatColor.LIGHT_PURPLE + " seconds before teleporting again.");
+                        + ChatColor.GOLD + secondsLeft + " seconds " + ChatColor.LIGHT_PURPLE + " before teleporting again.");
                 return;
             }
         }
