@@ -81,7 +81,6 @@ public class TFSMP extends JavaPlugin
         getCommand("smp").setExecutor(new SMPCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
         getCommand("uhoh").setExecutor(new UhOhCommand());
-        getCommand("spawn").setExecutor(new SpawnCommand());
     }
 
     public void loadListeners()

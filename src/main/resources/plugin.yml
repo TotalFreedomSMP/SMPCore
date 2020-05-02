@@ -63,6 +63,3 @@ commands:
     description: Uh oh! Stinky!
     usage: /<command>
     permission: tfsmp.uhoh
-  spawn:
-    description: Teleports player to the hub, or spawn
-    usage: /<command> [player]
