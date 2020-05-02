@@ -30,9 +30,9 @@ public class ShopCommand extends SMPBase implements CommandExecutor
             return true;
         }
 
-        int x = plugin.config.getInt("server.coords.shop.x");
-        int y = plugin.config.getInt("server.coords.shop.y");
-        int z = plugin.config.getInt("server.coords.shop.z");
+        double x = plugin.config.getDouble("server.coords.shop.x");
+        double y = plugin.config.getDouble("server.coords.shop.y");
+        double z = plugin.config.getDouble("server.coords.shop.z");
 
         Player player = (Player)sender;
         player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the shop...");

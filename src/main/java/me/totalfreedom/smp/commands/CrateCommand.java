@@ -28,9 +28,9 @@ public class CrateCommand extends SMPBase implements CommandExecutor
             return true;
         }
 
-        int x = plugin.config.getInt("server.coords.crate.x");
-        int y = plugin.config.getInt("server.coords.crate.y");
-        int z = plugin.config.getInt("server.coords.crate.z");
+        double x = plugin.config.getDouble("server.coords.crate.x");
+        double y = plugin.config.getDouble("server.coords.crate.y");
+        double z = plugin.config.getDouble("server.coords.crate.z");
 
         Player player = (Player)sender;
         player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the crates...");

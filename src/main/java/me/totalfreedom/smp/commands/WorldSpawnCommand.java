@@ -30,9 +30,9 @@ public class WorldSpawnCommand extends SMPBase implements CommandExecutor
             return true;
         }
 
-        int x = plugin.config.getInt("server.coords.worldspawn.x");
-        int y = plugin.config.getInt("server.coords.worldspawn.y");
-        int z = plugin.config.getInt("server.coords.worldspawn.z");
+        double x = plugin.config.getDouble("server.coords.worldspawn.x");
+        double y = plugin.config.getDouble("server.coords.worldspawn.y");
+        double z = plugin.config.getDouble("server.coords.worldspawn.z");
 
         Player player = (Player)sender;
         player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the world spawn...");
