@@ -38,17 +38,17 @@ public class Util extends SMPBase
 
     public static void action(String player, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + player + " " + message);
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + player + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static void action(CommandSender sender, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + sender.getName() + " " + message);
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + sender.getName() + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static void action(Player player, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + player.getName() + " " + message);
+        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + player.getName() + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static String colorize(final String string)
