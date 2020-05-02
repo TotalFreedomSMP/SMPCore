@@ -10,9 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class LoginProcess extends SMPBase implements Listener
+public class LoginListener extends SMPBase implements Listener
 {
-    public LoginProcess(TFSMP plugin)
+    public LoginListener(TFSMP plugin)
     {
         this.plugin = plugin;
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);

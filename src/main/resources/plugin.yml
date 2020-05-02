@@ -10,7 +10,6 @@ commands:
     usage: /<command> <message>
     description: Speak with other staff members
     aliases: [o, oc, adminchat, ac]
-    permission: tfsmp.adminchat
   begin:
     description: Get started with SMP.
     usage: /<command>
@@ -21,7 +20,6 @@ commands:
     description: Send a message from the console
     usage: /<command> <message>
     aliases: [csay]
-    permission: tfsmp.consolesay
   crate:
     usage: /<command>
     description: Teleports player to the crate location
@@ -31,7 +29,6 @@ commands:
   owo:
     usage: /<command>
     description: Owo!
-    permission: tfsmp.owo
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
@@ -39,15 +36,12 @@ commands:
   rawsay:
     description: Broadcasts a message
     usage: /<command> <message>
-    permission: tfsmp.rawsay
   satisfyall:
-    permission: tfsmp.satisfyall
-    description: Feed and heal everyone
+    description: Feed and heal everyone online
     usage: /<command>
   say:
     description: Talk as the server
     usage: /<command> <message>
-    permission: tfsmp.say
   shop:
     description: Teleports the player to the shop location
     usage: /<command>
@@ -62,4 +56,3 @@ commands:
   uhoh:
     description: Uh oh! Stinky!
     usage: /<command>
-    permission: tfsmp.uhoh

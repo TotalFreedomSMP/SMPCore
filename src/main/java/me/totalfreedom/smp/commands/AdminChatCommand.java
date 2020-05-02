@@ -14,9 +14,14 @@ public class AdminChatCommand extends SMPBase implements CommandExecutor
 {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
+        if  (!sender.hasPermission("tfsmp.adminchat"))
+        {
+            sender.sendMessage(Messages.NO_PERMISSION);
+            return true;
+        }
         if (args.length == 0)
         {
-            sender.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Please provide a message.");
+            sender.sendMessage(Messages.MISSING_ARGS);
             return true;
         }
         String message = StringUtils.join(args, " ");

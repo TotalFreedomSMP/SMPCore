@@ -13,6 +13,11 @@ public class OwoCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
+        if  (!sender.hasPermission("tfsmp.owo"))
+        {
+            sender.sendMessage(Messages.NO_PERMISSION);
+            return true;
+        }
         for (Player player : Bukkit.getOnlinePlayers())
         {
             for (int i = 0; i < 100; ++i)

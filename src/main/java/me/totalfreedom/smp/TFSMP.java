@@ -6,7 +6,7 @@ import me.totalfreedom.smp.api.Permissions;
 import me.totalfreedom.smp.commands.*;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.ChatListener;
-import me.totalfreedom.smp.listeners.LoginProcess;
+import me.totalfreedom.smp.listeners.LoginListener;
 import me.totalfreedom.smp.listeners.ServerListener;
 import me.totalfreedom.smp.listeners.TabListener;
 import net.luckperms.api.LuckPerms;
@@ -22,11 +22,12 @@ public class TFSMP extends JavaPlugin
     public static Server server;
     public static final BuildProperties build = new BuildProperties();
     public ChatListener cl;
-    public LoginProcess lp;
+    public LoginListener loli; // lynx likes this
     public ServerListener sl;
     public TabListener tl;
     public Permissions perms;
     public MainConfig config;
+
     @Override
     public void onLoad()
     {
@@ -66,6 +67,7 @@ public class TFSMP extends JavaPlugin
 
     public void loadCommands()
     {
+        // try and keep this and the plugin.yml in alphabetical order it helps so much thx
         getCommand("adminchat").setExecutor(new AdminChatCommand());
         getCommand("begin").setExecutor(new BeginCommand());
         getCommand("clearweather").setExecutor(new ClearWeatherCommand());
@@ -86,7 +88,7 @@ public class TFSMP extends JavaPlugin
     public void loadListeners()
     {
         cl = new ChatListener(this);
-        lp = new LoginProcess(this);
+        loli = new LoginListener(this);
         sl = new ServerListener(this);
         tl = new TabListener(this);
     }

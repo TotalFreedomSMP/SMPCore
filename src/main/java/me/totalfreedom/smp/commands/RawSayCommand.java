@@ -13,10 +13,19 @@ public class RawSayCommand extends SMPBase implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args)
     {
-        if (args.length > 0)
+        if  (!sender.hasPermission("tfsmp.adminchat"))
         {
-            Bukkit.broadcastMessage(Util.colorize(StringUtils.join(args, " ")));
+            sender.sendMessage(Messages.NO_PERMISSION);
+            return true;
         }
+
+        if (args.length == 0)
+        {
+            sender.sendMessage(Messages.MISSING_ARGS);
+            return true;
+        }
+
+        Bukkit.broadcastMessage(Util.colorize(StringUtils.join(args, " ")));
         return true;
     }
 }

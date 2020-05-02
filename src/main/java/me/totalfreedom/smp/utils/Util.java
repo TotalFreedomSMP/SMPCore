@@ -18,7 +18,7 @@ import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Util extends SMPBase
+public class Util
 {
     public static Map<String, ChatColor> CHAT_COLOR_NAMES;
     public static List<ChatColor> CHAT_COLOR_POOL;
@@ -88,7 +88,8 @@ public class Util extends SMPBase
             long secondsLeft = getSecondsLeft(cooldown.get(player.getName()), cooldownTime);
             if (secondsLeft > 0L)
             {
-                player.sendMessage(ChatColor.RED + "You have to wait " + secondsLeft + " seconds before teleporting again.");
+                player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have to wait "
+                + ChatColor.GOLD + secondsLeft + " seconds before teleporting again.");
                 return;
             }
         }
