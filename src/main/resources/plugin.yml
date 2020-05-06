@@ -11,7 +11,7 @@ commands:
     description: Speak with other staff members
     aliases: [o, oc, adminchat, ac]
   begin:
-    description: Get started with SMP.
+    description: Get started with SMP
     usage: /<command>
   clearweather:
     description: Clears the weather in all worlds
@@ -36,6 +36,10 @@ commands:
   rawsay:
     description: Broadcasts a message
     usage: /<command> <message>
+  rules:
+    description: View the server rules
+    usage: /<command>
+    aliases: [erules]
   satisfyall:
     description: Feed and heal everyone online
     usage: /<command>

@@ -12,6 +12,7 @@ import me.totalfreedom.smp.commands.FionnCommand;
 import me.totalfreedom.smp.commands.OwoCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
 import me.totalfreedom.smp.commands.RawSayCommand;
+import me.totalfreedom.smp.commands.RulesCommand;
 import me.totalfreedom.smp.commands.SMPCommand;
 import me.totalfreedom.smp.commands.SatisfyAllCommand;
 import me.totalfreedom.smp.commands.SayCommand;
@@ -91,6 +92,7 @@ public class TFSMP extends JavaPlugin
         getCommand("owo").setExecutor(new OwoCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
         getCommand("rawsay").setExecutor(new RawSayCommand());
+        getCommand("rules").setExecutor(new RulesCommand());
         getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
         getCommand("say").setExecutor(new SayCommand());
         getCommand("shop").setExecutor(new ShopCommand());

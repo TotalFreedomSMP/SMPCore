@@ -4,9 +4,8 @@
 
 server:
   motd: "TotalFreedom SMP (MC 1.7 - 1.15.2) - Stay Home"
-  tablist_header: ' \n  &bWelcome to &eTotalFreedom SMP&b!  \n '
-  tablist_footer: ' \n  &b#StayHome \n  '
-
+  tablist_header: ' \n  &dWelcome to &6TotalFreedom SMP&d!  \n '
+  tablist_footer: ' \n  &d#StayHome \n  '
   coords:
     worldspawn:
       x: 0
@@ -20,3 +19,5 @@ server:
       x: -192
       y: 4
       z: -203
+  rules:
+    - '&dFor a list of server rules, please visit: &6https://telesphoreo.me/smp/rules&d.'
