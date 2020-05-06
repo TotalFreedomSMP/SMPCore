@@ -32,7 +32,7 @@ public class ChatListener extends SMPBase implements Listener
     private void handleChatEvent(final AsyncPlayerChatEvent event)
     {
         String message = event.getMessage().trim();
-        if (event.getMessage().contains("@everyone"))
+        if (event.getMessage().contains("@everyone") || event.getMessage().contains("@here"))
         {
             message = StringUtils.remove(message, "@");
         }
