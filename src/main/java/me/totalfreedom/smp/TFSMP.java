@@ -43,22 +43,11 @@ public class TFSMP extends JavaPlugin
     public Permissions perms;
     public MainConfig config;
 
-    public static LuckPerms getLuckPermsAPI()
-    {
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null)
-        {
-            server.getLogger().info("Successfully loaded the LuckPerms API.");
-            return provider.getProvider();
-        }
-        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
-        return null;
-    }
-
     @Override
     public void onLoad()
     {
         plugin = this;
+        server = getServer();
         config = new MainConfig(this);
         pluginVersion = plugin.getDescription().getVersion();
         build.load(this);
@@ -67,7 +56,6 @@ public class TFSMP extends JavaPlugin
     @Override
     public void onEnable()
     {
-        server = getServer();
         config.load();
         perms = new Permissions();
         loadListeners();
@@ -78,6 +66,18 @@ public class TFSMP extends JavaPlugin
     public void onDisable()
     {
         config.save();
+    }
+
+    public static LuckPerms getLuckPermsAPI()
+    {
+        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+        if (provider != null)
+        {
+            server.getLogger().info("Successfully loaded the LuckPerms API.");
+            return provider.getProvider();
+        }
+        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
+        return null;
     }
 
     public void loadCommands()
