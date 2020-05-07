@@ -35,7 +35,7 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
         {
             if (!sender.hasPermission("tfsmp.reload"))
             {
-                sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command.");
+                sender.sendMessage(Messages.NO_PERMISSION);
                 return true;
             }
             try

@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
     The default color is light purple. The player / action is in gold. The prefix should usually go
     before the message if it's a one liner.
     Example:
-    &dTF-SMP // &6Telesphoreo &dis a simp.
+    &6Telesphoreo &dis a simp.
     Error messages are in red (&c).
     If anything needs to be prefixed, use &8.
     Messages for "fun" commands don't necessarily need to be consistent. Having inconsistent
@@ -20,11 +20,10 @@ import org.bukkit.ChatColor;
 
 public class Messages
 {
-    public static String PREFIX = ChatColor.LIGHT_PURPLE + "TF-SMP // ";
-    public static String NO_PERMISSION = PREFIX + ChatColor.RED + "You do not have permission to execute this command.";
-    public static String PLAYER_ONLY = PREFIX + ChatColor.RED + "This command may only be executed by players.";
-    public static String CONSOLE_ONLY = PREFIX + ChatColor.RED + "This command may only be executed by the console.";
-    public static String MISSING_WORLD = PREFIX + ChatColor.RED + "The requested world could not be found! Please contact a staff member ASAP.";
-    public static String PLAYER_NOT_FOUND = PREFIX + ChatColor.RED + "Player not found.";
-    public static String MISSING_ARGS = PREFIX + ChatColor.RED + "Please provide a message.";
+    public static String NO_PERMISSION = ChatColor.RED + "You do not have permission to execute this command.";
+    public static String PLAYER_ONLY = ChatColor.RED + "This command may only be executed by players.";
+    public static String CONSOLE_ONLY = ChatColor.RED + "This command may only be executed by the console.";
+    public static String MISSING_WORLD = ChatColor.RED + "The requested world could not be found! Please contact a staff member ASAP.";
+    public static String PLAYER_NOT_FOUND = ChatColor.RED + "Player not found.";
+    public static String MISSING_ARGS = ChatColor.RED + "Please provide a message.";
 }

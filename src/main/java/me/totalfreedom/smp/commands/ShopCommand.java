@@ -33,7 +33,7 @@ public class ShopCommand extends SMPBase implements CommandExecutor
         double z = plugin.config.getDouble("server.coords.shop.z");
 
         Player player = (Player)sender;
-        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the shop...");
+        player.sendMessage(ChatColor.LIGHT_PURPLE + "Teleporting to the shop...");
         PaperLib.teleportAsync(player, new Location(spawn, x, y, z));
         return true;
     }

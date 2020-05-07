@@ -37,17 +37,17 @@ public class Util
 
     public static void action(String player, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + player + ChatColor.LIGHT_PURPLE + " " + message);
+        Bukkit.broadcastMessage(ChatColor.GOLD + player + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static void action(CommandSender sender, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + sender.getName() + ChatColor.LIGHT_PURPLE + " " + message);
+        Bukkit.broadcastMessage(ChatColor.GOLD + sender.getName() + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static void action(Player player, String message)
     {
-        Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "TF-SMP // " + ChatColor.GOLD + player.getName() + ChatColor.LIGHT_PURPLE + " " + message);
+        Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.LIGHT_PURPLE + " " + message);
     }
 
     public static String colorize(final String string)
@@ -87,7 +87,7 @@ public class Util
             long secondsLeft = getSecondsLeft(cooldown.get(player.getName()), cooldownTime);
             if (secondsLeft > 0L)
             {
-                player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have to wait "
+                player.sendMessage(ChatColor.LIGHT_PURPLE + "You have to wait "
                         + ChatColor.GOLD + secondsLeft + " seconds " + ChatColor.LIGHT_PURPLE + "before teleporting again.");
                 return;
             }
@@ -102,7 +102,7 @@ public class Util
             player.sendMessage(Messages.MISSING_WORLD);
             return;
         }
-        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You will now be randomly teleported, please wait...");
+        player.sendMessage(ChatColor.LIGHT_PURPLE + "You will now be randomly teleported, please wait...");
         Location oldLoc = player.getLocation();
         Location newLoc = oldLoc.clone();
         Block topBlock = world.getHighestBlockAt(newLoc);
@@ -135,6 +135,6 @@ public class Util
         }
         newLoc.setY(newLoc.getY() + 2.0D);
         PaperLib.teleportAsync(player, newLoc);
-        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "You have been randomly teleported!");
+        player.sendMessage( ChatColor.LIGHT_PURPLE + "You have been randomly teleported!");
     }
 }

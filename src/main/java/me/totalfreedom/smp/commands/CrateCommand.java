@@ -33,7 +33,7 @@ public class CrateCommand extends SMPBase implements CommandExecutor
         double z = plugin.config.getDouble("server.coords.crate.z");
 
         Player player = (Player)sender;
-        player.sendMessage(Messages.PREFIX + ChatColor.LIGHT_PURPLE + "Teleporting to the crates...");
+        player.sendMessage(ChatColor.LIGHT_PURPLE + "Teleporting to the crates...");
         PaperLib.teleportAsync(player, new Location(spawn, x, y, z));
         return true;
     }

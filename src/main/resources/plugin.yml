@@ -50,7 +50,7 @@ commands:
     description: Teleports the player to the shop location
     usage: /<command>
   smp:
-    description: Shows information about the SMP plugin or optionally reloads it.
+    description: Shows information about the SMP plugin or optionally reloads it
     usage: /<command> [reload]
     aliases: [tfsmp, totalfreedommod, tfm, converse, novelmcsucks, novelmcisdead, versatility]
   worldspawn:
