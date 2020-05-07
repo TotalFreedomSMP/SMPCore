@@ -26,6 +26,10 @@ commands:
   fionn:
     usage: /<command>
     description: Yeah!
+  kill:
+    usage: /<command> [player]
+    description: Kills you or if you have permissions, another player
+    aliases: [suicide]
   owo:
     usage: /<command>
     description: Owo!
