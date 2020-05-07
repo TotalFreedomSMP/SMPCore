@@ -17,7 +17,7 @@ public class RulesCommand extends SMPBase implements CommandExecutor
         List<String> adminInfo = plugin.config.getStringList("server.rules");
         if (adminInfo.isEmpty())
         {
-            sender.sendMessage(Messages.PREFIX + ChatColor.RED + "There is no text set in the configuration file.");
+            sender.sendMessage(ChatColor.RED + "There is no text set in the configuration file.");
         }
         else
         {
