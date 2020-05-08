@@ -29,7 +29,7 @@ commands:
   kill:
     usage: /<command> [player]
     description: Kills you or if you have permissions, another player
-    aliases: [suicide]
+    aliases: [suicide, ekill, esuicide]
   owo:
     usage: /<command>
     description: Owo!
