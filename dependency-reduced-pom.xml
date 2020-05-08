@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>me.totalfreedom</groupId>
   <artifactId>TF-SMP</artifactId>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <scm>
     <connection>scm:git:git@github.com:fionnn/tfsmp.git</connection>
     <developerConnection>scm:git:git@github.com:fionnn/tfsmp.git</developerConnection>
@@ -169,9 +169,9 @@
     </dependency>
   </dependencies>
   <properties>
-    <maven.build.timestamp.format>MM/dd/yyyy HH:mm</maven.build.timestamp.format>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jar.finalName>${project.name}</jar.finalName>
     <timestamp>${maven.build.timestamp}</timestamp>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>MM/dd/yyyy HH:mm</maven.build.timestamp.format>
   </properties>
 </project>

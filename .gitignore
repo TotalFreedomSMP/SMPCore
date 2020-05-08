@@ -4,6 +4,7 @@
 
 # Maven
 /target
+dependency-reduced-pom.xml
 
 # Mac shit
 .DS_Store

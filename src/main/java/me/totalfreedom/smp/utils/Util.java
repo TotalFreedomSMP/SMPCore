@@ -1,6 +1,7 @@
 package me.totalfreedom.smp.utils;
 
 import io.papermc.lib.PaperLib;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -76,6 +77,16 @@ public class Util
                 .stream()
                 .filter((players) -> (players.hasPermission("tfsmp.adminchat")))
                 .forEachOrdered((players) -> players.sendMessage(format));
+    }
+
+    public static List<String> getPlayerList()
+    {
+        List<String> names = new ArrayList<>();
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            names.add(player.getName());
+        }
+        return names;
     }
 
     public static void randomTeleport(Player player)
