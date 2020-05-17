@@ -18,7 +18,7 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
         if (args.length == 0)
         {
             TFSMP.BuildProperties build = TFSMP.build;
-            sender.sendMessage(ChatColor.GOLD + "TF-SMP is the custom plugin developed for the TotalFreedom SMP server.");
+            sender.sendMessage(ChatColor.GOLD + "SMPCore is the custom plugin developed for the TotalFreedom SMP server.");
             sender.sendMessage(ChatColor.GOLD + String.format("Version "
                             + ChatColor.BLUE + "%s.%s.%s",
                     build.version,
@@ -29,6 +29,10 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
                             + ChatColor.BLUE + "%s",
                     build.date,
                     build.author));
+            if (server.getPluginManager().isPluginEnabled("SMPItems"))
+            {
+                sender.sendMessage(ChatColor.GREEN + "Integration with SMPItems is enabled.");
+            }
             return true;
         }
         if (args[0].toLowerCase().equals("reload"))

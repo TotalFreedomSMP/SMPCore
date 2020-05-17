@@ -24,7 +24,7 @@ public class LoginListener extends SMPBase implements Listener
         Player player = event.getPlayer();
         if (!player.hasPlayedBefore())
         {
-            player.sendTitle(ChatColor.RED + "Welcome to" + ChatColor.GREEN + " SMP", ChatColor.WHITE + "To get started, type /begin!", 20, 100, 60);
+            player.sendTitle(ChatColor.RED + "Welcome to " + ChatColor.GREEN + "SMP", ChatColor.WHITE + "To get started, type /begin!", 20, 100, 60);
         }
 
         String header = plugin.config.getString("server.tablist_header");

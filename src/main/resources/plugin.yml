@@ -1,4 +1,4 @@
-name: TF-SMP
+name: SMPCore
 version: ${project.version}
 main: me.totalfreedom.smp.TFSMP
 author: Telesphoreo
@@ -53,10 +53,10 @@ commands:
   shop:
     description: Teleports the player to the shop location
     usage: /<command>
-  smp:
+  smpcore:
     description: Shows information about the SMP plugin or optionally reloads it
     usage: /<command> [reload]
-    aliases: [tfsmp, totalfreedommod, tfm, converse, novelmcsucks, novelmcisdead, versatility]
+    aliases: [totalfreedommod, tfm, converse, novelmcsucks, novelmcisdead, versatility]
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>

@@ -70,7 +70,7 @@ public class Util
     {
         Player player = Bukkit.getPlayer(sender.getName());
         String rank = TFSMP.plugin.perms.getDisplay(player);
-        String format = ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + rank
+        String format = ChatColor.DARK_GRAY + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + rank
                 + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
         Bukkit.getLogger().info(format);
         Bukkit.getOnlinePlayers()
@@ -146,6 +146,6 @@ public class Util
         }
         newLoc.setY(newLoc.getY() + 2.0D);
         PaperLib.teleportAsync(player, newLoc);
-        player.sendMessage( ChatColor.LIGHT_PURPLE + "You have been randomly teleported!");
+        player.sendMessage(ChatColor.LIGHT_PURPLE + "You have been randomly teleported!");
     }
 }

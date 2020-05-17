@@ -1,33 +1,15 @@
 package me.totalfreedom.smp.api;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import me.totalfreedom.smp.SMPBase;
-import net.luckperms.api.model.user.User;
 import net.luckperms.api.model.user.UserManager;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class Permissions extends SMPBase
 {
-    public boolean inGroup(Player player, String group)
-    {
-        return player.hasPermission("group." + group);
-    }
-
-    public void setGroup(UUID uuid, String group)
-    {
-        UserManager userManager = api.getUserManager();
-        CompletableFuture<User> userFuture = userManager.loadUser(uuid);
-
-        userFuture.thenAcceptAsync(user ->
-        {
-            user.setPrimaryGroup(group);
-            userManager.saveUser(user);
-        });
-    }
-
     public String getGroup(Player player)
     {
         UUID uuid = player.getUniqueId();
@@ -35,78 +17,79 @@ public class Permissions extends SMPBase
         return userManager.getUser(uuid).getPrimaryGroup();
     }
 
-    public String getDisplay(String name)
+    public Group getPlayerGroup(Player player)
     {
-        Player player = Bukkit.getPlayer(name);
-        return getDisplay(player);
+        return Group.getByName(getGroup(player).toLowerCase());
+    }
+
+    public String getRankName(Player player)
+    {
+        if (!(player instanceof Player))
+        {
+            return "Console";
+        }
+        Group group = getPlayerGroup(player);
+        return group.getName();
+    }
+
+    public ChatColor getRankColor(Player player)
+    {
+        if (!(player instanceof Player))
+        {
+            return ChatColor.DARK_PURPLE;
+        }
+        Group group = getPlayerGroup(player);
+        return group.getChatColor();
     }
 
     public String getDisplay(Player player)
     {
-        if (!(player instanceof Player))
-        {
-            return ChatColor.DARK_PURPLE + "Console";
-        }
-        else if (isModerator(player))
-        {
-            return ChatColor.LIGHT_PURPLE + "Moderator";
-        }
-        else if (isAdmin(player))
-        {
-            return ChatColor.RED + "Admin";
-        }
-        else if (isDeveloper(player))
-        {
-            return ChatColor.DARK_PURPLE + "Developer";
-        }
-        else if (isBuilder(player))
-        {
-            return ChatColor.DARK_AQUA + "Builder";
-        }
-        else if (isManager(player))
-        {
-            return ChatColor.YELLOW + "Manager";
-        }
-        else if (isOwner(player))
-        {
-            return ChatColor.DARK_RED + "Owner";
-        }
-
-        return ChatColor.GREEN + "Player";
+        return getRankColor(player) + getRankName(player);
     }
 
-    public boolean isPlayer(Player player)
+    // All credit goes to Steven and Polaris for this
+    public enum Group
     {
-        return inGroup(player, "default");
-    }
+        DEFAULT("Player", ChatColor.WHITE),
+        MOD("Moderator", ChatColor.LIGHT_PURPLE),
+        ADMIN("Admin", ChatColor.RED),
+        DEVELOPER("Developer", ChatColor.DARK_PURPLE),
+        MANAGER("Manager", ChatColor.YELLOW),
+        BUILDER("Builder", ChatColor.DARK_AQUA),
+        OWNER("Owner", ChatColor.DARK_RED);
 
-    public boolean isModerator(Player player)
-    {
-        return getGroup(player).equals("mod");
-    }
+        private static final Map<String, Group> BY_NAME = new HashMap<>();
 
-    public boolean isAdmin(Player player)
-    {
-        return getGroup(player).equals("admin");
-    }
+        static
+        {
+            for (Group group : Group.values())
+            {
+                BY_NAME.put(group.toString().toLowerCase(), group);
+            }
+        }
 
-    public boolean isDeveloper(Player player)
-    {
-        return getGroup(player).equals("developer");
-    }
+        private final String name;
+        private final ChatColor chatColor;
 
-    public boolean isManager(Player player)
-    {
-        return getGroup(player).equals("manager");
-    }
+        Group(String name, ChatColor chatColor)
+        {
+            this.name = name;
+            this.chatColor = chatColor;
+        }
 
-    public boolean isBuilder(Player player)
-    {
-        return getGroup(player).equals("builder");
-    }
+        public static Group getByName(String name)
+        {
+            return BY_NAME.getOrDefault(name, DEFAULT);
+        }
 
-    public boolean isOwner(Player player)
-    {
-        return getGroup(player).equals("owner");
+        public String getName()
+        {
+            return this.name;
+        }
+
+        public ChatColor getChatColor()
+        {
+            return this.chatColor;
+        }
     }
 }

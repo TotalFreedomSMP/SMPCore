@@ -1,6 +1,5 @@
 package me.totalfreedom.smp.commands;
 
-import java.util.ArrayList;
 import java.util.List;
 import me.totalfreedom.smp.SMPBase;
 import me.totalfreedom.smp.utils.Util;

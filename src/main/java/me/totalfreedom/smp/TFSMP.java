@@ -44,6 +44,18 @@ public class TFSMP extends JavaPlugin
     public Permissions perms;
     public MainConfig config;
 
+    public static LuckPerms getLuckPermsAPI()
+    {
+        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+        if (provider != null)
+        {
+            server.getLogger().info("Successfully loaded the LuckPerms API.");
+            return provider.getProvider();
+        }
+        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
+        return null;
+    }
+
     @Override
     public void onLoad()
     {
@@ -69,18 +81,6 @@ public class TFSMP extends JavaPlugin
         config.save();
     }
 
-    public static LuckPerms getLuckPermsAPI()
-    {
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null)
-        {
-            server.getLogger().info("Successfully loaded the LuckPerms API.");
-            return provider.getProvider();
-        }
-        server.getLogger().severe("The LuckPerms API was not loaded successfully. The plugin will not function properly.");
-        return null;
-    }
-
     public void loadCommands()
     {
         // try and keep this and the plugin.yml in alphabetical order it helps so much thx
@@ -98,7 +98,7 @@ public class TFSMP extends JavaPlugin
         getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
         getCommand("say").setExecutor(new SayCommand());
         getCommand("shop").setExecutor(new ShopCommand());
-        getCommand("smp").setExecutor(new SMPCommand());
+        getCommand("smpcore").setExecutor(new SMPCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
         getCommand("uhoh").setExecutor(new UhOhCommand());
     }

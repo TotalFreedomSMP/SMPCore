@@ -24,7 +24,7 @@ public class ChatListener extends SMPBase implements Listener
         {
             handleChatEvent(event);
         }
-        catch (Exception ex)
+        catch (Exception ignored)
         {
         }
     }
