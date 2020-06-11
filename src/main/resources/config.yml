@@ -21,3 +21,16 @@ server:
       z: -203
   rules:
     - '&dFor a list of server rules, please visit: &6https://telesphoreo.me/smp/rules&d.'
+  announcer:
+    enabled: true
+    interval: 600
+    prefix: '&dSMP » &6'
+    announcements:
+      - 'fionn is the owner of the SMP.'
+      - 'Hacked clients are not allowed!'
+      - 'Make sure to read our conduct policy at https://telesphoreo.me/smp/rules & https://totalfreedom.boards.net/thread/66475/smp-conduct-policy'
+      - 'Griefing / Raiding is not allowed!'
+      - 'Join our Discord server! https://discord.gg/EJ77jDD'
+      - 'Do /shop to visit the shop!'
+      - 'Do /crate to visit the crates!'
+      - 'Do /worldspawn to go to 0, 0!'
