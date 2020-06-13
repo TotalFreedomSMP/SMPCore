@@ -15,6 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.Waterlogged;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -104,18 +105,25 @@ public class Util
             }
         }
 
-        cooldown.put(player.getName(), System.currentTimeMillis());
+        if (!player.isOp())
+        {
+            cooldown.put(player.getName(), System.currentTimeMillis());
+            return;
+        }
 
         Random rand = new Random();
         World world = Bukkit.getWorld("world");
+
         if (world == null)
         {
             player.sendMessage(Messages.MISSING_WORLD);
             return;
         }
+
         player.sendMessage(ChatColor.LIGHT_PURPLE + "You will now be randomly teleported, please wait...");
         Location oldLoc = player.getLocation();
         Location newLoc = oldLoc.clone();
+        int y = newLoc.getBlockY();
         Block topBlock = world.getHighestBlockAt(newLoc);
         int maxDist = 696969 / 2;
         int minDist = 4200 / 2;
@@ -124,14 +132,15 @@ public class Util
         double x;
         double z;
         int count = 0;
-        while ((topBlock.isLiquid()
+        while ((topBlock.isLiquid() && topBlock.getType().isBlock()
                 // dont have players spawn on these blocks
-                || topBlock.getBlockData().getMaterial().equals(Material.LAVA)
-                || topBlock.getBlockData().getMaterial().equals(Material.KELP)
-                || topBlock.getBlockData().getMaterial().equals(Material.KELP_PLANT)
-                || topBlock.getBlockData().getMaterial().equals(Material.SEAGRASS)
-                || topBlock.getBlockData().getMaterial().equals(Material.TALL_SEAGRASS)
-                || topBlock.getBlockData().getMaterial().equals(Material.GRAVEL)
+                || topBlock.getType().equals(Material.WATER)
+                || topBlock.getType().equals(Material.LAVA)
+                || topBlock.getType().equals(Material.KELP)
+                || topBlock.getType().equals(Material.KELP_PLANT)
+                || topBlock.getType().equals(Material.SEAGRASS)
+                || topBlock.getType().equals(Material.TALL_SEAGRASS)
+                || topBlock.getType().equals(Material.GRAVEL)
                 || newLoc.equals(oldLoc)) && count < 3)
         {
             count++;
