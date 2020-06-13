@@ -15,7 +15,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.Waterlogged;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -108,7 +107,6 @@ public class Util
         if (!player.isOp())
         {
             cooldown.put(player.getName(), System.currentTimeMillis());
-            return;
         }
 
         Random rand = new Random();
