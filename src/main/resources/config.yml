@@ -1,9 +1,9 @@
 #
-# SMPCore v2.0 Configuration File
+# SMPCore v2.1 Configuration File
 #
 
 server:
-  motd: "TotalFreedom SMP (MC 1.15.2) - Stay Home"
+  motd: TotalFreedom SMP (MC 1.15.2) - Stay Home
   tablist_header: ' \n  &dWelcome to &6TotalFreedom SMP&d!  \n '
   tablist_footer: ' \n  &d#StayHome \n  '
   coords:
@@ -20,17 +20,17 @@ server:
       y: 4
       z: -203
   rules:
-    - '&dFor a list of server rules, please visit: &6https://telesphoreo.me/smp/rules&d.'
+    - '&dFor a list of server rules, please visit: &6https://smp.totalfreedom.me/rules&d.'
   announcer:
     enabled: true
     interval: 600
     prefix: '&dSMP » &6'
     announcements:
-      - 'fionn is the owner of the SMP.'
-      - 'Hacked clients are not allowed!'
-      - 'Make sure to read our conduct policy at https://telesphoreo.me/smp/rules & https://totalfreedom.boards.net/thread/66475/smp-conduct-policy'
-      - 'Griefing / Raiding is not allowed!'
-      - 'Join our Discord server! https://discord.gg/EJ77jDD'
-      - 'Do /shop to visit the shop!'
-      - 'Do /crate to visit the crates!'
-      - 'Do /worldspawn to go to 0, 0!'
+      - fionn is the owner of the SMP.
+      - Hacked clients are not allowed!
+      - Make sure to read our conduct policy at &dhttps://smp.totalfreedom.me/rules &6& &dhttps://totalfreedom.boards.net/thread/66475/smp-conduct-policy
+      - Griefing / Raiding is not allowed!
+      - Join our Discord server! &dhttps://discord.gg/EJ77jDD
+      - Do &d/shop &6to visit the shop!
+      - Do &d/crate &6to visit the crates!
+      - Do &d/worldspawn &6to go to 0, 0!
