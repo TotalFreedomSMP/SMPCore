@@ -1,7 +1,7 @@
 package me.totalfreedom.smp.listeners;
 
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import me.totalfreedom.smp.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Announcer extends SMPBase implements Listener
 {
-    public Announcer(TFSMP plugin)
+    public Announcer(SMPCore plugin)
     {
         announce();
         this.plugin = plugin;

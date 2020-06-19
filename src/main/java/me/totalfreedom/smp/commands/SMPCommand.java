@@ -3,7 +3,7 @@ package me.totalfreedom.smp.commands;
 import java.util.Collections;
 import java.util.List;
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +17,7 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
     {
         if (args.length == 0)
         {
-            TFSMP.BuildProperties build = TFSMP.build;
+            SMPCore.BuildProperties build = SMPCore.build;
             sender.sendMessage(ChatColor.GOLD + "SMPCore is the custom plugin developed for the TotalFreedom SMP server.");
             sender.sendMessage(ChatColor.GOLD + String.format("Version "
                             + ChatColor.BLUE + "%s.%s.%s",

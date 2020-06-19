@@ -33,10 +33,10 @@ import org.bukkit.Server;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class TFSMP extends JavaPlugin
+public class SMPCore extends JavaPlugin
 {
     public static final BuildProperties build = new BuildProperties();
-    public static TFSMP plugin;
+    public static SMPCore plugin;
     public static String pluginVersion;
     public static Server server;
     public Announcer an;
@@ -124,7 +124,7 @@ public class TFSMP extends JavaPlugin
         public String date;
         public String head;
 
-        public void load(TFSMP plugin)
+        public void load(SMPCore plugin)
         {
             try
             {

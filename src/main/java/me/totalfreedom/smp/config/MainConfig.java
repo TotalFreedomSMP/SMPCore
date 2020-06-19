@@ -1,16 +1,16 @@
 package me.totalfreedom.smp.config;
 
 import java.io.File;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class MainConfig extends YamlConfiguration
 {
-    private TFSMP plugin;
+    private SMPCore plugin;
     private MainConfig config;
     private File file;
 
-    public MainConfig(TFSMP plugin)
+    public MainConfig(SMPCore plugin)
     {
         this.plugin = plugin;
         this.file = new File(plugin.getDataFolder(), "config.yml");

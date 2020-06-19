@@ -1,7 +1,7 @@
 package me.totalfreedom.smp.listeners;
 
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class TabListener extends SMPBase implements Listener
 {
-    public TabListener(TFSMP plugin)
+    public TabListener(SMPCore plugin)
     {
         this.plugin = plugin;
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);

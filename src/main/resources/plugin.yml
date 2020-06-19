@@ -1,6 +1,6 @@
 name: SMPCore
 version: ${project.version}
-main: me.totalfreedom.smp.TFSMP
+main: me.totalfreedom.smp.SMPCore
 author: Telesphoreo
 description: Plugin for the TotalFreedom SMP server
 softdepend: [LuckPerms]

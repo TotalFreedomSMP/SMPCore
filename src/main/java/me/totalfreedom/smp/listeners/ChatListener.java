@@ -1,7 +1,7 @@
 package me.totalfreedom.smp.listeners;
 
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -11,7 +11,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatListener extends SMPBase implements Listener
 {
-    public ChatListener(TFSMP plugin)
+    public ChatListener(SMPCore plugin)
     {
         this.plugin = plugin;
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);

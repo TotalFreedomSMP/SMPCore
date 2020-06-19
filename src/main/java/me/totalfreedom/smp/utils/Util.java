@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import me.totalfreedom.smp.commands.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -69,7 +69,7 @@ public class Util
     public static void adminChat(CommandSender sender, String message)
     {
         Player player = Bukkit.getPlayer(sender.getName());
-        String rank = TFSMP.plugin.perms.getDisplay(player);
+        String rank = SMPCore.plugin.perms.getDisplay(player);
         String format = ChatColor.DARK_GRAY + "# " + ChatColor.BLUE + sender.getName() + ChatColor.DARK_GRAY + " [" + rank
                 + ChatColor.DARK_GRAY + "] \u00BB " + ChatColor.GOLD + message;
         Bukkit.getLogger().info(format);

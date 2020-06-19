@@ -1,7 +1,7 @@
 package me.totalfreedom.smp.listeners;
 
 import me.totalfreedom.smp.SMPBase;
-import me.totalfreedom.smp.TFSMP;
+import me.totalfreedom.smp.SMPCore;
 import me.totalfreedom.smp.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -10,7 +10,7 @@ import org.bukkit.event.server.ServerListPingEvent;
 
 public class ServerListener extends SMPBase implements Listener
 {
-    public ServerListener(TFSMP plugin)
+    public ServerListener(SMPCore plugin)
     {
         this.plugin = plugin;
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
