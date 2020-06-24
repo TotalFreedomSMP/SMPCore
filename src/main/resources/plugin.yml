@@ -3,7 +3,7 @@ version: ${project.version}
 main: me.totalfreedom.smp.SMPCore
 author: Telesphoreo
 description: Plugin for the TotalFreedom SMP server
-softdepend: [LuckPerms]
+softdepend: [LuckPerms, WorldBorder]
 api-version: 1.15
 commands:
   adminchat:
