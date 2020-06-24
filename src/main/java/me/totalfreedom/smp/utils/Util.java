@@ -1,18 +1,23 @@
 package me.totalfreedom.smp.utils;
 
+import com.wimbli.WorldBorder.BorderData;
+import com.wimbli.WorldBorder.Config;
 import io.papermc.lib.PaperLib;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
 import me.totalfreedom.smp.SMPCore;
 import me.totalfreedom.smp.commands.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
@@ -118,19 +123,22 @@ public class Util
             return;
         }
 
+        BorderData border = Config.Border(world.toString());
+
         player.sendMessage(ChatColor.LIGHT_PURPLE + "You will now be randomly teleported, please wait...");
-        Location oldLoc = player.getLocation();
+        Location oldLoc = world.getSpawnLocation();
         Location newLoc = oldLoc.clone();
         int y = newLoc.getBlockY();
         Block topBlock = world.getHighestBlockAt(newLoc);
-        int maxDist = 696969 / 2;
-        int minDist = 4200 / 2;
+        int maxDist = 10000 / 2;
+        int minDist = 500 / 2;
         double xAdd;
         double zAdd;
         double x;
         double z;
         int count = 0;
-        while ((topBlock.isLiquid() && topBlock.getType().isBlock()
+        while (border != null && topBlock.isLiquid() && topBlock.getType().isBlock()
+                && !border.insideBorder(player.getLocation())
                 // dont have players spawn on these blocks
                 || topBlock.getType().equals(Material.WATER)
                 || topBlock.getType().equals(Material.LAVA)
@@ -139,7 +147,10 @@ public class Util
                 || topBlock.getType().equals(Material.SEAGRASS)
                 || topBlock.getType().equals(Material.TALL_SEAGRASS)
                 || topBlock.getType().equals(Material.GRAVEL)
-                || newLoc.equals(oldLoc)) && count < 3)
+                || topBlock.getType().equals(Material.ICE)
+                || topBlock.getType().equals(Material.PACKED_ICE)
+                || topBlock.getType().equals(Material.FROSTED_ICE)
+                || newLoc.equals(oldLoc) && count < 3)
         {
             count++;
             xAdd = rand.nextDouble() * (maxDist - minDist) + minDist;

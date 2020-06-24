@@ -11,6 +11,7 @@ import me.totalfreedom.smp.commands.ConsoleSayCommand;
 import me.totalfreedom.smp.commands.CrateCommand;
 import me.totalfreedom.smp.commands.FionnCommand;
 import me.totalfreedom.smp.commands.KillCommand;
+import me.totalfreedom.smp.commands.LocalSpawnCommand;
 import me.totalfreedom.smp.commands.OwoCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
 import me.totalfreedom.smp.commands.RawSayCommand;
@@ -95,6 +96,7 @@ public class SMPCore extends JavaPlugin
         getCommand("crate").setExecutor(new CrateCommand());
         getCommand("fionn").setExecutor(new FionnCommand());
         getCommand("kill").setExecutor(new KillCommand());
+        getCommand("localspawn").setExecutor(new LocalSpawnCommand());
         getCommand("owo").setExecutor(new OwoCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
         getCommand("rawsay").setExecutor(new RawSayCommand());

@@ -34,6 +34,9 @@ commands:
     usage: /<command> [player]
     description: Kills you or if you have permissions, another player
     aliases: [suicide, ekill, esuicide]
+  localspawn:
+    usage: /<command>
+    description: Teleport to the spawnpoint of the world that you are in
   owo:
     usage: /<command>
     description: Owo!

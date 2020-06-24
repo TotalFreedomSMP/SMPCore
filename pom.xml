@@ -6,7 +6,7 @@
 
     <groupId>me.totalfreedom</groupId>
     <artifactId>SMPCore</artifactId>
-    <version>2.1</version>
+    <version>2.1.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,6 +53,14 @@
             <artifactId>paperlib</artifactId>
             <version>1.0.3</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wimbli</groupId>
+            <artifactId>WorldBorder</artifactId>
+            <version>1.9.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/WorldBorder.jar</systemPath>
         </dependency>
     </dependencies>
 
