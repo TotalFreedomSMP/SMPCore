@@ -56,6 +56,7 @@ public class Permissions extends SMPBase
         DEVELOPER("Developer", ChatColor.DARK_PURPLE),
         MANAGER("Manager", ChatColor.YELLOW),
         BUILDER("Builder", ChatColor.DARK_AQUA),
+        FOUNDER("Founder", ChatColor.RED),
         OWNER("Owner", ChatColor.DARK_RED);
 
         private static final Map<String, Group> BY_NAME = new HashMap<>();

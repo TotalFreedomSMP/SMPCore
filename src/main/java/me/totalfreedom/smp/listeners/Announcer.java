@@ -14,9 +14,9 @@ public class Announcer extends SMPBase implements Listener
 {
     public Announcer(SMPCore plugin)
     {
-        announce();
         this.plugin = plugin;
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+        announce();
     }
 
     List<String> announcements = plugin.config.getStringList("server.announcer.announcements");
@@ -29,16 +29,16 @@ public class Announcer extends SMPBase implements Listener
 
     public void announce()
     {
+        if (!enabled)
+        {
+            return;
+        }
+
         new BukkitRunnable()
         {
             @Override
             public void run()
             {
-                if (!enabled)
-                {
-                    return;
-                }
-
                 String announcement = announcements.get(new Random().nextInt(announcements.size()));
                 Bukkit.broadcastMessage(Util.colorize(prefix + announcement));
             }

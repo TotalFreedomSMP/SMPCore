@@ -3,7 +3,7 @@
 #
 
 server:
-  motd: TotalFreedom SMP (MC 1.15.2) - Stay Home
+  motd: TotalFreedom SMP (MC 1.15.2 & 1.16.1) - Stay Home
   tablist_header: ' \n  &dWelcome to &6TotalFreedom SMP&d!  \n '
   tablist_footer: ' \n  &d#StayHome \n  '
   coords:

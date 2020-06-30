@@ -130,8 +130,8 @@ public class Util
         Location newLoc = oldLoc.clone();
         int y = newLoc.getBlockY();
         Block topBlock = world.getHighestBlockAt(newLoc);
-        int maxDist = 10000 / 2;
-        int minDist = 500 / 2;
+        int maxDist = 20000 / 2;
+        int minDist = 1500 / 2;
         double xAdd;
         double zAdd;
         double x;

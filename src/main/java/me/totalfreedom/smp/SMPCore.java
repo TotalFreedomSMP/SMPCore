@@ -24,7 +24,6 @@ import me.totalfreedom.smp.commands.UhOhCommand;
 import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.Announcer;
-import me.totalfreedom.smp.listeners.ChatListener;
 import me.totalfreedom.smp.listeners.LoginListener;
 import me.totalfreedom.smp.listeners.ServerListener;
 import me.totalfreedom.smp.listeners.TabListener;
@@ -41,7 +40,6 @@ public class SMPCore extends JavaPlugin
     public static String pluginVersion;
     public static Server server;
     public Announcer an;
-    public ChatListener cl;
     public LoginListener loli; // lynx likes this
     public ServerListener sl;
     public TabListener tl;
@@ -112,7 +110,6 @@ public class SMPCore extends JavaPlugin
     public void loadListeners()
     {
         an = new Announcer(this);
-        cl = new ChatListener(this);
         loli = new LoginListener(this);
         sl = new ServerListener(this);
         tl = new TabListener(this);
