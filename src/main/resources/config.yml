@@ -11,10 +11,6 @@ server:
       x: 0
       y: 63
       z: 0
-    crate:
-      x: -158
-      y: 3
-      z: -165
     shop:
       x: -192
       y: 4

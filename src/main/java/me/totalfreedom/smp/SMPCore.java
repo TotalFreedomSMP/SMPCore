@@ -8,7 +8,6 @@ import me.totalfreedom.smp.commands.AnnounceCommand;
 import me.totalfreedom.smp.commands.BeginCommand;
 import me.totalfreedom.smp.commands.ClearWeatherCommand;
 import me.totalfreedom.smp.commands.ConsoleSayCommand;
-import me.totalfreedom.smp.commands.CrateCommand;
 import me.totalfreedom.smp.commands.FionnCommand;
 import me.totalfreedom.smp.commands.KillCommand;
 import me.totalfreedom.smp.commands.LocalSpawnCommand;
@@ -93,7 +92,6 @@ public class SMPCore extends JavaPlugin
         getCommand("begin").setExecutor(new BeginCommand());
         getCommand("clearweather").setExecutor(new ClearWeatherCommand());
         getCommand("consolesay").setExecutor(new ConsoleSayCommand());
-        getCommand("crate").setExecutor(new CrateCommand());
         getCommand("fionn").setExecutor(new FionnCommand());
         getCommand("kill").setExecutor(new KillCommand());
         getCommand("localspawn").setExecutor(new LocalSpawnCommand());

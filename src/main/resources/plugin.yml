@@ -24,9 +24,6 @@ commands:
     description: Send a message from the console
     usage: /<command> <message>
     aliases: [csay]
-  crate:
-    usage: /<command>
-    description: Teleports player to the crate location
   fionn:
     usage: /<command>
     description: Yeah!
