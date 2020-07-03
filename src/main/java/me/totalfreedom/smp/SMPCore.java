@@ -18,7 +18,6 @@ import me.totalfreedom.smp.commands.RulesCommand;
 import me.totalfreedom.smp.commands.SMPCommand;
 import me.totalfreedom.smp.commands.SatisfyAllCommand;
 import me.totalfreedom.smp.commands.SayCommand;
-import me.totalfreedom.smp.commands.ShopCommand;
 import me.totalfreedom.smp.commands.UhOhCommand;
 import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
@@ -101,7 +100,6 @@ public class SMPCore extends JavaPlugin
         getCommand("rules").setExecutor(new RulesCommand());
         getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
         getCommand("say").setExecutor(new SayCommand());
-        getCommand("shop").setExecutor(new ShopCommand());
         getCommand("smpcore").setExecutor(new SMPCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
         getCommand("uhoh").setExecutor(new UhOhCommand());

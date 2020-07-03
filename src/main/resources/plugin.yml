@@ -54,9 +54,6 @@ commands:
   say:
     description: Talk as the server
     usage: /<command> <message>
-  shop:
-    description: Teleports the player to the shop location
-    usage: /<command>
   smpcore:
     description: Shows information about the SMP plugin or optionally reloads it
     usage: /<command> [reload]
