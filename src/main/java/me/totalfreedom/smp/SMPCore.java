@@ -21,11 +21,7 @@ import me.totalfreedom.smp.commands.SayCommand;
 import me.totalfreedom.smp.commands.UhOhCommand;
 import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
-import me.totalfreedom.smp.listeners.Announcer;
-import me.totalfreedom.smp.listeners.CommandListener;
-import me.totalfreedom.smp.listeners.LoginListener;
-import me.totalfreedom.smp.listeners.ServerListener;
-import me.totalfreedom.smp.listeners.TabListener;
+import me.totalfreedom.smp.listeners.*;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
@@ -43,6 +39,7 @@ public class SMPCore extends JavaPlugin
     public LoginListener loli; // lynx likes this
     public ServerListener sl;
     public TabListener tl;
+    public Powerer pwr;
     public Permissions perms;
     public MainConfig config;
 
@@ -112,6 +109,7 @@ public class SMPCore extends JavaPlugin
         loli = new LoginListener(this);
         sl = new ServerListener(this);
         tl = new TabListener(this);
+        pwr = new Powerer();
     }
 
     public static class BuildProperties
