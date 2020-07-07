@@ -6,7 +6,6 @@ import java.util.UUID;
 import me.totalfreedom.smp.SMPBase;
 import net.luckperms.api.model.user.UserManager;
 import org.bukkit.ChatColor;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class Permissions extends SMPBase
@@ -25,7 +24,7 @@ public class Permissions extends SMPBase
 
     public String getRankName(Player player)
     {
-        if (player instanceof ConsoleCommandSender)
+        if (!(player instanceof Player))
         {
             return "Console";
         }
@@ -35,7 +34,7 @@ public class Permissions extends SMPBase
 
     public ChatColor getRankColor(Player player)
     {
-        if (player instanceof ConsoleCommandSender)
+        if (!(player instanceof Player))
         {
             return ChatColor.DARK_PURPLE;
         }
