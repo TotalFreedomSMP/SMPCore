@@ -6,6 +6,7 @@ import java.util.UUID;
 import me.totalfreedom.smp.SMPBase;
 import net.luckperms.api.model.user.UserManager;
 import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class Permissions extends SMPBase
@@ -24,7 +25,7 @@ public class Permissions extends SMPBase
 
     public String getRankName(Player player)
     {
-        if (!(player instanceof Player))
+        if (player instanceof ConsoleCommandSender)
         {
             return "Console";
         }
@@ -34,12 +35,17 @@ public class Permissions extends SMPBase
 
     public ChatColor getRankColor(Player player)
     {
-        if (!(player instanceof Player))
+        if (player instanceof ConsoleCommandSender)
         {
             return ChatColor.DARK_PURPLE;
         }
         Group group = getPlayerGroup(player);
         return group.getChatColor();
+    }
+
+    public boolean isStaff(Player player)
+    {
+        return getPlayerGroup(player).isStaff();
     }
 
     public String getDisplay(Player player)
@@ -50,14 +56,14 @@ public class Permissions extends SMPBase
     // All credit goes to Steven and Polaris for this
     public enum Group
     {
-        DEFAULT("Player", ChatColor.WHITE),
-        MOD("Moderator", ChatColor.LIGHT_PURPLE),
-        ADMIN("Admin", ChatColor.RED),
-        DEVELOPER("Developer", ChatColor.DARK_PURPLE),
-        MANAGER("Manager", ChatColor.YELLOW),
-        BUILDER("Builder", ChatColor.DARK_AQUA),
-        FOUNDER("Founder", ChatColor.RED),
-        OWNER("Owner", ChatColor.DARK_RED);
+        DEFAULT("Player", ChatColor.WHITE, false),
+        MOD("Moderator", ChatColor.LIGHT_PURPLE, true),
+        ADMIN("Admin", ChatColor.RED, true),
+        DEVELOPER("Developer", ChatColor.DARK_PURPLE, true),
+        MANAGER("Manager", ChatColor.YELLOW, true),
+        BUILDER("Builder", ChatColor.DARK_AQUA, false),
+        FOUNDER("Founder", ChatColor.RED, true),
+        OWNER("Owner", ChatColor.DARK_RED, true);
 
         private static final Map<String, Group> BY_NAME = new HashMap<>();
 
@@ -71,11 +77,13 @@ public class Permissions extends SMPBase
 
         private final String name;
         private final ChatColor chatColor;
+        private final boolean staff;
 
-        Group(String name, ChatColor chatColor)
+        Group(String name, ChatColor chatColor, boolean staff)
         {
             this.name = name;
             this.chatColor = chatColor;
+            this.staff = staff;
         }
 
         public static Group getByName(String name)
@@ -91,6 +99,11 @@ public class Permissions extends SMPBase
         public ChatColor getChatColor()
         {
             return this.chatColor;
+        }
+
+        public boolean isStaff()
+        {
+            return this.staff;
         }
     }
 }
