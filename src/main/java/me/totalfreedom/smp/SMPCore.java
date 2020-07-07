@@ -10,6 +10,7 @@ import me.totalfreedom.smp.commands.ClearWeatherCommand;
 import me.totalfreedom.smp.commands.ConsoleSayCommand;
 import me.totalfreedom.smp.commands.FionnCommand;
 import me.totalfreedom.smp.commands.KillCommand;
+import me.totalfreedom.smp.commands.LinksCommand;
 import me.totalfreedom.smp.commands.LocalSpawnCommand;
 import me.totalfreedom.smp.commands.OwoCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
@@ -37,9 +38,9 @@ public class SMPCore extends JavaPlugin
     public Announcer an;
     public CommandListener cl;
     public LoginListener loli; // lynx likes this
+    public Powerer pwr;
     public ServerListener sl;
     public TabListener tl;
-    public Powerer pwr;
     public Permissions perms;
     public MainConfig config;
 
@@ -90,6 +91,7 @@ public class SMPCore extends JavaPlugin
         getCommand("consolesay").setExecutor(new ConsoleSayCommand());
         getCommand("fionn").setExecutor(new FionnCommand());
         getCommand("kill").setExecutor(new KillCommand());
+        getCommand("links").setExecutor(new LinksCommand());
         getCommand("localspawn").setExecutor(new LocalSpawnCommand());
         getCommand("owo").setExecutor(new OwoCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
@@ -107,9 +109,9 @@ public class SMPCore extends JavaPlugin
         an = new Announcer(this);
         cl = new CommandListener(this);
         loli = new LoginListener(this);
+        pwr = new Powerer();
         sl = new ServerListener(this);
         tl = new TabListener(this);
-        pwr = new Powerer();
     }
 
     public static class BuildProperties

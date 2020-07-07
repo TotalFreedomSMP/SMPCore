@@ -1,5 +1,5 @@
 #
-# SMPCore v2.1 Configuration File
+# SMPCore v2.2 Configuration File
 #
 
 server:
@@ -18,9 +18,20 @@ server:
     interval: 600
     prefix: '&dSMP » &6'
     announcements:
-      - fionn is the owner of the SMP.
       - Hacked clients are not allowed!
-      - Make sure to read our conduct policy at &dhttps://smp.totalfreedom.me/rules &6& &dhttps://totalfreedom.boards.net/thread/66475/smp-conduct-policy
-      - Griefing / Raiding is not allowed!
+      - Make sure to read our conduct policy at &dhttps://smp.totalfreedom.me/rules
+        &6& &dhttps://totalfreedom.boards.net/thread/66475/smp-conduct-policy
+      - Griefing / Raiding is allowed!
       - Join our Discord server! &dhttps://discord.gg/EJ77jDD
       - Do &d/worldspawn &6to go to 0, 0!
+      - The Dynmap link for SMP is: http://smp.totalfreedom.me:1694/
+      - You can create a new faction by typing &d/f create <name>
+      - Server lagging? You can check the lag with "/tps"
+      - You can visit the TotalFreedom forums at: https://totalfreedom.boards.net
+      - To learn more about SMPItems, check out the wiki at: https://smp.totalfreedom.me/wiki/
+      - To get a list of server links, type &d/links
+links:
+  - '&dForums &8- &6https://totalfreedom.boards.net'
+  - '&dSMPItems Wiki &8- &6https://smp.totalfreedom.me/wiki/Main_Page'
+  - '&dDynmap &8- &6http://smp.totalfreedom.me:1694'
+  - '&dServer Rules &8- &6https://smp.totalfreedom.me/rules'

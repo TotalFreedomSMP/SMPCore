@@ -25,8 +25,8 @@ public class Powerer
                 {
                     faction.setPowerBoost(faction.getPowerBoost() + 5.0);
                 }
-                Bukkit.broadcastMessage(Util.colorize("&dSMP » &6All factions have received their 30 minute power bump of 5!"));
+                Bukkit.broadcastMessage(Util.colorize("&dSMP \u00BB &6All factions have received their 30 minute power bump of 5!"));
             }
-        }.runTaskTimer(SMPCore.plugin, 0, 36000);
+        }.runTaskTimer(SMPCore.plugin, 36000, 36000);
     }
 }

@@ -31,16 +31,20 @@ commands:
     usage: /<command> [player]
     description: Kills you or if you have permissions, another player
     aliases: [suicide, ekill, esuicide]
+  links:
+    usage: /<command>
+    description: Get a list of links relevant to the server.
   localspawn:
     usage: /<command>
     description: Teleport to the spawnpoint of the world that you are in
   owo:
     usage: /<command>
     description: Owo!
+  # Override Essentials tprandom
   randomtp:
     description: Randomly teleport to a location
     usage: /<command>
-    aliases: [rtp, tpr]
+    aliases: [rtp, tpr, tprandom, etprandom, etpr]
   rawsay:
     description: Broadcasts a message
     usage: /<command> <message>

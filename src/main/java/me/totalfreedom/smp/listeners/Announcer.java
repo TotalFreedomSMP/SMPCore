@@ -15,7 +15,6 @@ public class Announcer extends SMPBase implements Listener
     public Announcer(SMPCore plugin)
     {
         this.plugin = plugin;
-        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
         announce();
     }
 

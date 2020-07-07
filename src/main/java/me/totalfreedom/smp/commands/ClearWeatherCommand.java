@@ -11,6 +11,11 @@ public class ClearWeatherCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args)
     {
+        if (!sender.hasPermission("tfsmp.clearweather"))
+        {
+            sender.sendMessage(Messages.NO_PERMISSION);
+            return true;
+        }
         World world = Bukkit.getWorld("world");
         if (world == null)
         {
