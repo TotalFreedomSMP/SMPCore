@@ -17,6 +17,9 @@ commands:
   begin:
     description: Get started with SMP
     usage: /<command>
+  banish:
+    description: თქვენს ოჯახს
+    usage: /<command> <user> [reason]
   clearweather:
     description: Clears the weather in all worlds
     usage: /<command>
