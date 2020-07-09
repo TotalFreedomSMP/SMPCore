@@ -8,7 +8,6 @@ import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.Announcer;
 import me.totalfreedom.smp.listeners.CommandListener;
 import me.totalfreedom.smp.listeners.LoginListener;
-import me.totalfreedom.smp.listeners.Powerer;
 import me.totalfreedom.smp.listeners.ServerListener;
 import me.totalfreedom.smp.listeners.TabListener;
 import net.luckperms.api.LuckPerms;
@@ -26,7 +25,6 @@ public class SMPCore extends JavaPlugin
     public Announcer an;
     public CommandListener cl;
     public LoginListener loli; // lynx likes this
-    public Powerer pwr;
     public ServerListener sl;
     public TabListener tl;
     public Permissions perms;
@@ -98,7 +96,6 @@ public class SMPCore extends JavaPlugin
         an = new Announcer(this);
         cl = new CommandListener(this);
         loli = new LoginListener(this);
-        pwr = new Powerer();
         sl = new ServerListener(this);
         tl = new TabListener(this);
     }
