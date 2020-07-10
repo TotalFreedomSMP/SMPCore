@@ -3,7 +3,22 @@ package me.totalfreedom.smp;
 import java.io.InputStream;
 import java.util.Properties;
 import me.totalfreedom.smp.api.Permissions;
-import me.totalfreedom.smp.commands.*;
+import me.totalfreedom.smp.commands.AdminChatCommand;
+import me.totalfreedom.smp.commands.AnnounceCommand;
+import me.totalfreedom.smp.commands.BeginCommand;
+import me.totalfreedom.smp.commands.ClearWeatherCommand;
+import me.totalfreedom.smp.commands.ConsoleSayCommand;
+import me.totalfreedom.smp.commands.KillCommand;
+import me.totalfreedom.smp.commands.LinksCommand;
+import me.totalfreedom.smp.commands.LocalSpawnCommand;
+import me.totalfreedom.smp.commands.RandomTpCommand;
+import me.totalfreedom.smp.commands.RawSayCommand;
+import me.totalfreedom.smp.commands.RulesCommand;
+import me.totalfreedom.smp.commands.SatisfyAllCommand;
+import me.totalfreedom.smp.commands.SayCommand;
+import me.totalfreedom.smp.commands.SMPCommand;
+import me.totalfreedom.smp.commands.VoteCommand;
+import me.totalfreedom.smp.commands.WorldSpawnCommand;
 import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.Announcer;
 import me.totalfreedom.smp.listeners.CommandListener;
@@ -72,23 +87,20 @@ public class SMPCore extends JavaPlugin
         // try and keep this and the plugin.yml in alphabetical order it helps so much thx
         getCommand("adminchat").setExecutor(new AdminChatCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
-        getCommand("banish").setExecutor(new BanishCommand());
         getCommand("begin").setExecutor(new BeginCommand());
         getCommand("clearweather").setExecutor(new ClearWeatherCommand());
         getCommand("consolesay").setExecutor(new ConsoleSayCommand());
-        getCommand("fionn").setExecutor(new FionnCommand());
         getCommand("kill").setExecutor(new KillCommand());
         getCommand("links").setExecutor(new LinksCommand());
         getCommand("localspawn").setExecutor(new LocalSpawnCommand());
-        getCommand("owo").setExecutor(new OwoCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
         getCommand("rawsay").setExecutor(new RawSayCommand());
         getCommand("rules").setExecutor(new RulesCommand());
         getCommand("satisfyall").setExecutor(new SatisfyAllCommand());
         getCommand("say").setExecutor(new SayCommand());
         getCommand("smpcore").setExecutor(new SMPCommand());
+        getCommand("vote").setExecutor(new VoteCommand());
         getCommand("worldspawn").setExecutor(new WorldSpawnCommand());
-        getCommand("uhoh").setExecutor(new UhOhCommand());
     }
 
     public void loadListeners()

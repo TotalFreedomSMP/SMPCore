@@ -17,9 +17,6 @@ commands:
   begin:
     description: Get started with SMP
     usage: /<command>
-  banish:
-    description: this broke the server
-    usage: /<command> <user> [reason]
   clearweather:
     description: Clears the weather in all worlds
     usage: /<command>
@@ -27,9 +24,6 @@ commands:
     description: Send a message from the console
     usage: /<command> <message>
     aliases: [csay]
-  fionn:
-    usage: /<command>
-    description: Yeah!
   kill:
     usage: /<command> [player]
     description: Kills you or if you have permissions, another player
@@ -40,9 +34,6 @@ commands:
   localspawn:
     usage: /<command>
     description: Teleport to the spawnpoint of the world that you are in
-  owo:
-    usage: /<command>
-    description: Owo!
   # Override Essentials tprandom
   randomtp:
     description: Randomly teleport to a location
@@ -65,10 +56,10 @@ commands:
     description: Shows information about the SMP plugin or optionally reloads it
     usage: /<command> [reload]
     aliases: [totalfreedommod, tfm, converse, novelmcsucks, novelmcisdead, versatility]
+  vote:
+    description: Shows a list of all the voting links
+    usage: /<command>
   worldspawn:
     description: Teleports player to 0, 0
     usage: /<command>
     aliases: [localspawn]
-  uhoh:
-    description: Uh oh! Stinky!
-    usage: /<command>
