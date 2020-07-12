@@ -1,5 +1,12 @@
 package me.totalfreedom.smp.commands;
 
+import com.massivecraft.factions.FPlayer;
+import com.massivecraft.factions.FPlayers;
+import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Factions;
+import com.massivecraft.factions.FactionsAPI;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import me.totalfreedom.smp.SMPBase;
@@ -35,38 +42,60 @@ public class SMPCommand extends SMPBase implements CommandExecutor, TabCompleter
             }
             return true;
         }
-        if (args[0].toLowerCase().equals("reload"))
+        switch (args[0].toLowerCase())
         {
-            if (!sender.hasPermission("tfsmp.reload"))
+            case "reload":
             {
-                sender.sendMessage(Messages.NO_PERMISSION);
+                if (!sender.hasPermission("tfsmp.reload"))
+                {
+                    sender.sendMessage(Messages.NO_PERMISSION);
+                    return true;
+                }
+                try
+                {
+                    plugin.config.load();
+                    sender.sendMessage(ChatColor.GRAY + "The configuration file has been reloaded.");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                    sender.sendMessage(ChatColor.RED + "There was an error reloading the configuration file. Check the console for more details.");
+                }
                 return true;
             }
-            try
+            case "resetpowerboost":
             {
-                plugin.config.load();
-                sender.sendMessage(ChatColor.GRAY + "The configuration file has been reloaded.");
+                if (!sender.hasPermission("tfsmp.resetpowerboost"))
+                {
+                    sender.sendMessage(Messages.NO_PERMISSION);
+                    return true;
+                }
+
+                List<Faction> factions = Factions.getInstance().getAllFactions();
+                Collection<FPlayer> players = FPlayers.getInstance().getAllFPlayers();
+
+                for (Faction faction : factions)
+                {
+                    faction.setPowerBoost(0);
+                    sender.sendMessage(ChatColor.LIGHT_PURPLE + "Set powerboost to 0 for faction " + faction);
+                }
+
+                for (FPlayer fPlayer : players)
+                {
+                    fPlayer.setPowerBoost(0);
+                    fPlayer.setIsAdminBypassing(false);
+                    sender.sendMessage(ChatColor.LIGHT_PURPLE + "Set powerboost to 0 for player " + fPlayer.getName());
+                }
                 return true;
             }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-                sender.sendMessage(ChatColor.RED + "There was an error reloading the configuration file. Check the console for more details.");
-            }
-            return true;
+            default:
+                return false;
         }
-        return false;
     }
 
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args)
     {
-        if (sender.hasPermission("tfsmp.reload"))
-        {
-            return Collections.singletonList("reload");
-        }
-        else
-        {
-            return null;
-        }
+        return Arrays.asList("reload", "resetpowerboost");
     }
 }
