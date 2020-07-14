@@ -34,6 +34,10 @@ commands:
   localspawn:
     usage: /<command>
     description: Teleport to the spawnpoint of the world that you are in
+  nickgradient:
+    usage: /<command> <hex> <hex> <nickname>
+    description: Create a gradient from two hex color codes and set it as your nickname
+    aliases: [nickgr, ng]
   # Override Essentials tprandom
   randomtp:
     description: Randomly teleport to a location

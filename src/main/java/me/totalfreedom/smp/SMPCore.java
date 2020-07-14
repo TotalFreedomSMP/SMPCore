@@ -2,6 +2,7 @@ package me.totalfreedom.smp;
 
 import java.io.InputStream;
 import java.util.Properties;
+import me.totalfreedom.smp.api.EssentialsXBridge;
 import me.totalfreedom.smp.api.Permissions;
 import me.totalfreedom.smp.commands.AdminChatCommand;
 import me.totalfreedom.smp.commands.AnnounceCommand;
@@ -11,6 +12,7 @@ import me.totalfreedom.smp.commands.ConsoleSayCommand;
 import me.totalfreedom.smp.commands.KillCommand;
 import me.totalfreedom.smp.commands.LinksCommand;
 import me.totalfreedom.smp.commands.LocalSpawnCommand;
+import me.totalfreedom.smp.commands.NickGradientCommand;
 import me.totalfreedom.smp.commands.RandomTpCommand;
 import me.totalfreedom.smp.commands.RawSayCommand;
 import me.totalfreedom.smp.commands.RulesCommand;
@@ -43,6 +45,7 @@ public class SMPCore extends JavaPlugin
     public ServerListener sl;
     public TabListener tl;
     public Permissions perms;
+    public EssentialsXBridge esb;
     public MainConfig config;
 
     public static LuckPerms getLuckPermsAPI()
@@ -72,6 +75,7 @@ public class SMPCore extends JavaPlugin
     {
         config.load();
         perms = new Permissions();
+        esb = new EssentialsXBridge();
         loadListeners();
         loadCommands();
     }
@@ -93,6 +97,7 @@ public class SMPCore extends JavaPlugin
         getCommand("kill").setExecutor(new KillCommand());
         getCommand("links").setExecutor(new LinksCommand());
         getCommand("localspawn").setExecutor(new LocalSpawnCommand());
+        getCommand("nickgradient").setExecutor(new NickGradientCommand());
         getCommand("randomtp").setExecutor(new RandomTpCommand());
         getCommand("rawsay").setExecutor(new RawSayCommand());
         getCommand("rules").setExecutor(new RulesCommand());

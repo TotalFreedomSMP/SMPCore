@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 import me.totalfreedom.smp.SMPBase;
 import net.luckperms.api.model.user.UserManager;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 
 public class Permissions extends SMPBase
@@ -62,7 +62,7 @@ public class Permissions extends SMPBase
         MANAGER("Manager", ChatColor.YELLOW, true),
         BUILDER("Builder", ChatColor.DARK_AQUA, false),
         FOUNDER("Founder", ChatColor.RED, true),
-        OWNER("Owner", ChatColor.DARK_RED, true);
+        OWNER("Owner", ChatColor.of("#FF0000"), true);
 
         private static final Map<String, Group> BY_NAME = new HashMap<>();
 
