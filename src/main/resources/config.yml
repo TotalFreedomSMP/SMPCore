@@ -1,9 +1,8 @@
 #
-# SMPCore v2.2 Configuration File
+# SMPCore v2.4 Configuration File
 #
 
 server:
-  motd: TotalFreedom SMP (MC 1.15.2 & 1.16.1) - Stay Home
   tablist_header: ' \n  &dWelcome to &6TotalFreedom SMP&d!  \n '
   tablist_footer: ' \n  &d#StayHome \n  '
   coords:
@@ -27,12 +26,12 @@ server:
       - The Dynmap link for SMP is: http://smp.totalfreedom.me:1694/
       - You can create a new faction by typing &d/f create <name>
       - Server lagging? You can check the lag with "/tps"
-      - You can visit the TotalFreedom forums at: https://totalfreedom.boards.net
+      - You can visit the TotalFreedom forums at: https://forum.totalfreedom.me
       - To learn more about SMPItems, check out the wiki at: https://smp.totalfreedom.me/wiki/
       - To get a list of server links, type &d/links
       - To vote for the server, type &d/vote
 links:
-  - '&dForums &8- &6https://totalfreedom.boards.net'
+  - '&dForums &8- &6https://forum.totalfreedom.me'
   - '&dSMPItems Wiki &8- &6https://smp.totalfreedom.me/wiki/Main_Page'
   - '&dDynmap &8- &6http://smp.totalfreedom.me:1694'
   - '&dServer Rules &8- &6https://smp.totalfreedom.me/rules'

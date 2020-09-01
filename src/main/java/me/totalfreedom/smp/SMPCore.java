@@ -25,7 +25,6 @@ import me.totalfreedom.smp.config.MainConfig;
 import me.totalfreedom.smp.listeners.Announcer;
 import me.totalfreedom.smp.listeners.CommandListener;
 import me.totalfreedom.smp.listeners.LoginListener;
-import me.totalfreedom.smp.listeners.ServerListener;
 import me.totalfreedom.smp.listeners.TabListener;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -42,7 +41,6 @@ public class SMPCore extends JavaPlugin
     public Announcer an;
     public CommandListener cl;
     public LoginListener loli; // lynx likes this
-    public ServerListener sl;
     public TabListener tl;
     public Permissions perms;
     public EssentialsXBridge esb;
@@ -113,7 +111,6 @@ public class SMPCore extends JavaPlugin
         an = new Announcer(this);
         cl = new CommandListener(this);
         loli = new LoginListener(this);
-        sl = new ServerListener(this);
         tl = new TabListener(this);
     }
 
