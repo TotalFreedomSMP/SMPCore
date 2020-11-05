@@ -4,7 +4,7 @@ main: me.totalfreedom.smp.SMPCore
 author: Telesphoreo
 description: Plugin for the TotalFreedom SMP server
 softdepend: [LuckPerms, WorldBorder]
-api-version: 1.15
+api-version: 1.16
 commands:
   adminchat:
     usage: /<command> <message>

@@ -28,7 +28,6 @@ public class NickGradientCommand extends SMPBase implements CommandExecutor
             return false;
         }
 
-
         String nick = args[2].trim();
 
         if (nick.length() < 3 || nick.length() > 30)
